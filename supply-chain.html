@@ -7,6 +7,32 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS for the Read More Accordion/Dropdown */
+        
+        /* New rules for all three sections' arrows */
+        /* Initially, all arrows are pointing down (default 0 deg rotation) */
+        #read-more-toggle-nuclear.open #read-more-arrow-nuclear,
+        #read-more-toggle-turbine.open #read-more-arrow-turbine,
+        #read-more-toggle-bop.open #read-more-arrow-bop {
+            transform: rotate(180deg); /* Rotate 180 deg when the content is open */
+        }
+        
+        .read-more-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-out, opacity 0.7s ease-out;
+            opacity: 0;
+            margin: 0; 
+            padding: 0;
+        }
+        .read-more-content.open {
+            /* Increased max-height to ensure all content fits without cutting off */
+            max-height: 20000px; 
+            opacity: 1;
+            transition: max-height 1.0s ease-in, opacity 1.0s ease-in;
+        }
+    </style>
 </head>
 <body>
 
@@ -32,27 +58,29 @@
 
     <main id="top">
         <section class="content-section light-bg">
-            <div class="container content-with-sidebar"> <div class="main-content"> <h1>Nuclear Power Plant Supply Chain: Materials and Services</h1>
-                    <p>This section outlines key potential materials and services based on a global look on completed projects. There are various materials and services that several Kenyan industries can currently supply or could work towards building capacity on. This section therefore highlights human resource, materials, services and also machines that are typically needed for a nuclear power plant build and subsequent operation.</p>
-                    <p>This section is divided into 4 subsections owing to different levels of technology requirements:
-                    </p>
+            <div class="container content-with-sidebar"> 
+                <div class="main-content"> 
+                    <h1>Nuclear Power Plant Supply Chain: Materials and Services</h1>
+                    <p>This section outlines key materials and services needed for nuclear power plant construction and operation. It shows potential areas where Kenyan industries can supply or build capacity to supply the required materials and services. The information is based on a global outlook of completed nuclear power projects.</p>
+                    <p>The nuclear power plant is divided into three main sections:</p>
                     <ul>
-                        <li> Nuclear island</li>
-                        <li> Turbine island</li>
-                        <li> Balance of Plant (BOP)</li>
-                        <li> Other services</li>
+                        <li>Nuclear island</li>
+                        <li>Turbine island</li>
+                        <li>Balance of Plant (BOP)</li>
                     </ul>
-                    <div class="nuclear island" style="height: 800px; text-align: center;">
-                                <img src="nuclear island.jpg" alt="Schematic of Nuclear Island, Turbine Island and Balance of Plant" style="width:auto; height:80%;">
-                                <p class="image-caption">
-    Simplified schematic showing Nuclear island, Turbine island and Balance of Plant island
-    <span class="source">Source: 
-        <a href="https://www.enec.gov.ae/discover/how-nuclear-energy-works/what-does-a-nuclear-energy-plant-look-like-/" target="_blank" rel="noopener noreferrer">
-            Emirates Nuclear Energy Commission
-        </a>
-    </span>
-</p>
+                    
+                    <div class="nuclear-island-image" style="height: 800px; text-align: center;">
+                        <img src="nuclear island.jpg" alt="Schematic of Nuclear Island, Turbine Island and Balance of Plant" style="width:auto; height:80%;">
+                        <p class="image-caption">
+                            Simplified schematic showing Nuclear island, Turbine island and Balance of Plant island
+                            <span class="source">Source: 
+                                <a href="https://www.enec.gov.ae/discover/how-nuclear-energy-works/what-does-a-nuclear-energy-plant-look-like-/" target="_blank" rel="noopener noreferrer">
+                                    Emirates Nuclear Energy Commission
+                                </a>
+                            </span>
+                        </p>
                     </div>
+                    
                     <div class="table-of-contents-inline">
                         <h2>Table of Contents</h2>
                         <ul>
@@ -65,123 +93,116 @@
                     </div>
 
                     <h2 id="nuclear-island">1. Nuclear Island: The Heart of the Reactor (Highly Specialized – Requires International Partnerships)</h2>
-                    <p>The nuclear island, containing the reactor vessel and primary cooling system, demands extreme precision and compliance. International partnerships and technology transfer are crucial for local participation.
-                        The nuclear island has thousands of components, mostly highly specialized, this subsection highlights: nuclear reactor pressure vessel, steam generator, primary coolant pumps and containment building.
-                    </p>
-                    <h4>Table 1: Summary of Kenya's potential industrial capacity in Nuclear island</h4>
+                    <p>The nuclear island contains the reactor vessel and primary cooling system. It needs extreme precision and quality control. International partnerships are crucial for the entire section with very minimal or no local participation.</p>
+                    
+                    <h4>Summary of Kenya's potential industrial capacity in Nuclear Island</h4>
                     <table>
-                                <thead>
-                                    <tr>
-                                        <th>Industry</th>
-                                        <th>Potential</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>All</td>
-                                        <td>We dont have di capacity</td>
-                                    </tr>
+                        <thead>
+                            <tr>
+                                <th>Industry</th>
+                                <th>Potential</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Construction & Civil Works</td>
+                                <td>Concrete batching, rebar fabrication, formwork installation</td>
+                            </tr>
+                            <tr>
+                                <td>Material Handling</td>
+                                <td>Crane operation, heavy equipment operation, logistics support</td>
+                            </tr>
+                            <tr>
+                                <td>Welding & Fabrication</td>
+                                <td>Limited potential - requires specialized nuclear certification</td>
+                            </tr>
+                            <tr>
+                                <td>Technical Support</td>
+                                <td>Installation support, quality control assistance</td>
+                            </tr>
+                        </tbody>
                     </table>
+
+                    <div id="read-more-toggle-nuclear" onclick="toggleReadMore('read-more-details-nuclear')" style="text-align: center; cursor: pointer; padding: 10px; margin: 15px 0; background-color: #f4f4f4; border: 1px solid #ddd; border-radius: 5px; font-weight: bold; color: #004d99;" class="open">
+                        Detailed Analysis of Nuclear Island Components & Requirements (Read More) <span id="read-more-arrow-nuclear" style="display: inline-block; transition: transform 0.3s ease;">&#9660;</span>
+                    </div>
+                    
+                    <div id="read-more-details-nuclear" class="read-more-content open">
+
                     <h3>1.1. Reactor Pressure Vessels (RPVs)</h3>
                     <div class="rpv" style="text-align: center;">
-                                <img src="Fuqing Unit 6 rpv.jpg" alt="Installation of Fuqing Unit 6 HPR1000 Reactor" style="width:75%; height:auto;">
-                                <p class="image-caption">
-    Installation of Fuqing Unit 6 HPR1000 Reactor (1000MWe) in China's Fujian province
-    <span class="source">Source: 
-        <a href="https://en.cnnc.com.cn/2018-12/12/c_1023077.htm" target="_blank" rel="noopener noreferrer">
-            China National Nuclear Commission
-        </a>
-    </span>
-</p>
+                        <img src="Fuqing Unit 6 rpv.jpg" alt="Installation of Fuqing Unit 6 HPR1000 Reactor" style="width:75%; height:auto;">
+                        <p class="image-caption">
+                            Installation of Fuqing Unit 6 HPR1000 Reactor (1000MWe) in China's Fujian province
+                            <span class="source">Source: 
+                                <a href="https://en.cnnc.com.cn/2018-12/12/c_1023077.htm" target="_blank" rel="noopener noreferrer">
+                                    China National Nuclear Commission
+                                </a>
+                            </span>
+                        </p>
                     </div>
-                    <p>The RPV is a thick-walled steel vessel housing the nuclear fuel. Its fabrication is globally challenging, requiring exceptional metallurgical control and stringent quality assurance. The RPV, and by extension the Steam Generator (SG), are highly specialized components, critical to the safety and longevity of a nuclear power plant, requiring advanced manufacturing capabilities.</p>
-                    <p>The manufacturing of a Reactor Pressure Vessel, such as the HPR1000 RPV with an approximate inside diameter of <strong>4.6 meters</strong> (<strong>15.1 feet</strong>) and an overall height of <strong>12 meters</strong> (<strong>39.4 feet</strong>), weighing <strong>330 tons</strong>, typically requires immense forging presses, often with capacities greater than <strong>10,000 tonnes</strong>, utilized in processes like open die forging. Major global manufacturers possess presses ranging from <strong>12,000</strong> to <strong>17,000 tonnes</strong>.
-</p>
-
-                    <p>The United States of America, according to a <a href="https://www.osti.gov/biblio/1494317" target="_blank" rel="noopener noreferrer">2018 Department of Energy report</a>, faced difficulty in finding local suppliers for large forgings including RPV and Steam Generators. This is despite leading the world in nuclear power generation, largely due to its historical installations in the 80s and 90s.
-                         The report indicated a reliance on foreign expertise for the capital-intensive components like reactor pressure vessels and steam generators. This is attributed to the high cost of domestic manufacturing and the availability of international suppliers. For instance, the projected cost for establishing a domestic ultra-large forging facility capable of producing these components in the U.S. was approximately <strong>$2 billion (KSh 255.14 billion)</strong>. A single forged pressure vessel can cost around <strong>$150 million (KSh 19.14 billion)</strong> to produce, with only a few companies worldwide capable of such fabrication.</p>
-
-                    <p>Key international manufacturers and suppliers include <a href="https://www.doosanenerbility.com/" target="_blank" rel="noopener noreferrer">Doosan Enerbility
-
-                    </a> from South Korea, <a href="https://www.bhi.co.kr/en_index" target="_blank" rel="noopener noreferrer">BHI Company</a> also from South Korea, <a href="https://www.jsw.co.jp/en/" target="_blank" rel="noopener noreferrer">Japan Steel Works (JSW)</a>, <a href="https://www.cfhi.com/yizenglish/index/index.shtml" target="_blank" rel="noopener noreferrer">China First Heavy Industries (CFHI)</a>, and <a href="https://www.shanghai-electric.com/group_en/cyjt/shdqhdjtyxgs/wmdqy/" target="_blank" rel="noopener noreferrer">Shanghai Electric Group Co.</a>.</p>
-                    <p>Generally, the components within the reactor pressure vessel including fuel rods, control rods, high pressure valves, coolants require specialized expertise owing to their strict safety requirements. </p>
+                    <p>The RPV is a thick-walled steel vessel that holds the nuclear fuel. It is very difficult to make and requires special manufacturing skills.</p>
+                    <p>A typical RPV like the HPR1000 has an inside diameter of <strong>4.6 meters</strong> and height of <strong>12 meters</strong>, weighing <strong>330 tons</strong>. Making it requires huge forging presses of over <strong>10,000 tonnes</strong> capacity.</p>
+                    <p>According to a <a href="https://www.energy.gov/ne/articles/us-department-energy-report-domestic-nuclear-manufacturing" target="_blank" rel="noopener noreferrer">2018 Department of Energy report</a>, even though the United States leads in global nuclear power geneartion, it relies on foreign suppliers for large nuclear components for its new reactors due to high costs.</p>
+                    <p>For instance, the projected cost for establishing a domestic ultra-large forging facility capable of producing these components in the U.S. was approximately $2 billion (KSh 255.14 billion). A single forged pressure vessel can cost around $150 million (KSh 19.14 billion) to produce, with only a few companies worldwide capable of such fabrication.</p>
+                    <p>Key international manufacturers include:</p>
                     <ul>
-                        <li><strong>Fabrication:</strong> Involves forging, intricate machining, and specialized welding followed by extensive non-destructive testing.</li>
-                        <li><strong>Target Local Potential:</strong> Contribution to non-nuclear support structures, handling equipment, and installation under strict supervision.</li>
+                        <li><a href="https://www.doosanenerbility.com/" target="_blank" rel="noopener noreferrer">Doosan Enerbility (South Korea)</a></li>
+                        <li><a href="https://www.jsw.co.jp/en/" target="_blank" rel="noopener noreferrer">Japan Steel Works (Japan)</a></li>
+                        <li><a href="https://www.cfhi.com/yizenglish/index/index.shtml" target="_blank" rel="noopener noreferrer">China First Heavy Industries (China)</a></li>
                     </ul>
+                    <p><strong>Local Potential:</strong> Kenyan companies can provide support structures, handling equipment, and installation help under strict supervision.</p>
 
                     <h3>1.2. Steam Generators</h3>
                     <div class="sg" style="text-align: center;">
-                                <img src="sg.jpg" alt="Steam Generator Delivered to Cruas Meyss" style="width:75%; height:auto;">
-                                <p class="image-caption">
-    Steam Generator manufactured by Framatome delivered to Cruas-Meyss, France
-    <span class="source">Source: 
-        <a href="https://www.world-nuclear-news.org/Articles/Replacement-steam-generators-arrive-at-Cruas-Meyss" target="_blank" rel="noopener noreferrer">
-            World Nuclear News
-        </a>
-    </span>
-</p>
+                        <img src="sg.jpg" alt="Steam Generator Delivered to Cruas Meyss" style="width:75%; height:auto;">
+                        <p class="image-caption">
+                            Steam Generator manufactured by Framatome delivered to Cruas-Meyss, France
+                            <span class="source">Source: 
+                                <a href="https://www.world-nuclear-news.org/Articles/Replacement-steam-generators-arrive-at-Cruas-Meyss" target="_blank" rel="noopener noreferrer">
+                                    World Nuclear News
+                                </a>
+                            </span>
+                        </p>
                     </div>
-                    <p>Steam generators transfer heat from the primary coolant to a secondary loop, producing steam. 
-                        They are practically huge heat exchangers. As already mentioned, these components are critical 
-                        and highly speicalized, with typical units measuring up to <strong>21 meters</strong> in height and 
-                        weighing as much as <strong>800 tons</strong>. For a 300MW nuclear power plant, typically one or 
-                        two steam generators will be needed. Each steam generator is a complex assembly containing anywhere 
-                        from <strong>3,000 to 16,000 tubes</strong>, each approximately <strong>19 mm</strong> in diameter. Some of the leading
-                    steam generator manufacturers in the world include: <a href="https://www.shanghai-electric.com/group_en/nyzb20125/hd/index.shtml" 
-                    target="_blank" rel="noopener noreferrer"> Shanghai Electric</a> and <a href="https://www.mhi.com/news/0902241286.html" 
-                    target="_blank" rel="noreferrer noopener"> Mitsubishi Heavy Industries.</a></p>
-                    <ul>
-                        <li><strong>Material</strong>: High-nickel alloys (Inconel 600, 690) for tubes, offering resistance to stress corrosion cracking. Shells are made of carbon steel or low-alloy steel, clad with stainless steel.</li>
-                        <li><strong>Fabrication</strong>: This process demands extreme precision in tube bending and welding, followed by extensive non-destructive testing.</li>
-                        <li><strong>Target Local Potential</strong>: Contribution to non-nuclear support structures, handling equipment, and installation under strict supervision.</li>
+                    <p>Steam generators transfer heat from the reactor to make steam for electricity. They are huge heat exchangers.</p>
+                    <p>Typical steam generators are <strong>21 meters</strong> tall and weigh up to <strong>800 tons</strong>. Each contains <strong>3,000 to 16,000 tubes</strong>.</p>
+                    <p>Major manufacturers include <a href="https://www.shanghai-electric.com/" target="_blank" rel="noopener noreferrer">Shanghai Electric</a> and <a href="https://www.mhi.com/" target="_blank" rel="noreferrer noopener">Mitsubishi Heavy Industries</a>.</p>
+                    <p><strong>Local Potential:</strong> Support structures, handling equipment, and installation under supervision.</p>
 
                     <h3>1.3. Primary Coolant Pumps</h3>
-                    <div class="sg" style="text-align: center;">
-                                <img src="coolant pump.jpg" alt="Primary Coolant Pump" style="height:auto; width:50%;">
-                                <p class="image-caption">
-    A Primary Coolant Pump
-    <span class="source">Source: 
-        <a href="https://www.world-nuclear-news.org/Articles/Containment-building-completed-at-Zhangzhou-1" target="_blank" rel="noopener noreferrer">
-            World Nuclear News
-        </a>
-    </span>
-</p>
+                    <div class="coolant-pump" style="text-align: center;">
+                        <img src="coolant pump.jpg" alt="Primary Coolant Pump" style="height:auto; width:50%;">
+                        <p class="image-caption">
+                            A Primary Coolant Pump
+                            <span class="source">Source: 
+                                <a href="https://www.world-nuclear-news.org/Articles/Containment-building-completed-at-Zhangzhou-1" target="_blank" rel="noopener noreferrer">
+                                    World Nuclear News
+                                </a>
+                            </span>
+                        </p>
                     </div>
-                    <p>Primary coolant pumps circulate high-pressure, high-temperature water (PWR) or liquid sodium (fast reactors) through the reactor core, requiring extreme reliability to prevent overheating. A single failure can trigger reactor shutdown.</p>
-
-                    <p>These massive pumps stand <strong>5–8 meters tall</strong>, weigh <strong>50–100 tons</strong>, 
-                        and can deliver flow rates of over <strong>20,000 m<sup>3</sup>/h</strong> at pressures up to 15 MPa. 
-                        The pumps typically run on large motors typically requiring power supply in thousands of kW.
-                         For example, the AP1000 reactor uses four 
-                         <a href="https://www.curtisswright.com/news/press-releases/news-release-details/2015/Curtiss-Wright-Announces-AP1000R-Reactor-Coolant-Pump-RCP-Successfully-Reaches-Full-Qualification" target="_blank" rel="noopener noreferrer">Curtiss-Wright</a> canned-motor pumps, each with a <strong>6.3 MW motor</strong>.</p>
-
-                    <p>The global supply chain is highly consolidated, with only a few firms capable of meeting nuclear safety standards (ASME QME-1).</a> The components are of high complexity especially sealing technologies (e.g., hydrodynamic seals for leak prevention) and inertial flywheel requirements for coast-down during power loss.</p>
-
-                    <p>Notably, <a href="https://www.reuters.com/business/energy/turkish-nuclear-plant-delayed-by-withheld-siemens-parts-china-supply-2024-09-11/" target="_blank" rel="noopener noreferrer">Siemens Energy and an unnamed Chinese firm</a> supplies coolant pumps for Russia’s Akkuyu NPP in Turkey under a Rosatom subcontract, illustrating the cross-border nature of these critical components.</p>
-                    <ul>
-                        <li><strong>Material:</strong> Nuclear-grade stainless steels (304L, 316L) for corrosion resistance; high-strength alloys for impellers and shafts.</li>
-                        <li><strong>Fabrication:</strong> Precision casting, machining, assembly, and rigorous testing.</li>
-                        <li><strong>Target Local Potential:</strong> Contribution to non-nuclear support structures, handling equipment, and installation under strict supervision.</li>
-                    </ul>
+                    <p>These pumps circulate high-pressure water through the reactor core. They must be extremely reliable.</p>
+                    <p>The pumps are <strong>5–8 meters</strong> tall, weigh <strong>50–100 tons</strong>, and use large motors up to <strong>6.3 MW</strong>. 
+                        They can deliver flow rates of over <strong>20,000 m<sup>3</sup>/h</strong> at pressures up to 15 MPa. </p>
+                    <p>Only a few companies worldwide make nuclear-grade coolant pumps that meet strict safety standards.</p>
+                    <p><strong>Local Potential:</strong> Support structures, handling equipment, and installation under supervision.</p>
 
                     <h3>1.4. Containment Buildings</h3>
-                    <div class="sg" style="text-align: center;">
-                                <img src="containment.jpg" alt="Concreting of containment structure at Zhangzhou 1 NPP in China's Fujian province" style="width:75%; height:auto;">
-                                <p class="image-caption">
-    Image showing complete concreting of containment building at Zhangzhou 1 NPP in China's Fujian province
-    <span class="source">Source: 
-        <a href="https://www.world-nuclear-news.org/Articles/Containment-building-completed-at-Zhangzhou-1" target="_blank" rel="noopener noreferrer">
-            World Nuclear News
-        </a>
-    </span>
-</p>
+                    <div class="containment" style="text-align: center;">
+                        <img src="containment.jpg" alt="Concreting of containment structure at Zhangzhou 1 NPP in China's Fujian province" style="width:75%; height:auto;">
+                        <p class="image-caption">
+                            Image showing complete concreting of containment building at Zhangzhou 1 NPP in China's Fujian province
+                            <span class="source">Source: 
+                                <a href="https://www.world-nuclear-news.org/Articles/Containment-building-completed-at-Zhangzhou-1" target="_blank" rel="noopener noreferrer">
+                                    World Nuclear News
+                                </a>
+                            </span>
+                        </p>
                     </div>
-                    <p>The containment building houses the reactor pressure vessel, coolant pumps, steam generators, emergency core cooling tanks 
-                        and many other critical components. The nuclear power plants ensure defence-in-depth with multiple layers of safety against 
-                        radiation release, starting from the fuel rods, then the reactor pressure vessel primary loop, and finally the containment structure, which is the last physical barrier. It is designed to withstand extremes such as earthquakes and external impacts like <strong>400-ton aircraft crashes</strong>. Its construction involves a sophisticated mix of civil engineering and precision steelwork.</p>
-
-                    <p>Modern containments, such as the <a href="https://www.nrc.gov/docs/ML1034/ML103480517.pdf" target="_blank" 
+                    <p>The containment building houses the reactor and safety systems. It is designed to withstand earthquakes and other
+                         extreme events including 400 ton aircraft crash.</p>
+                   <p>Modern containments, such as the <a href="https://www.nrc.gov/docs/ML1034/ML103480517.pdf" target="_blank" 
                         rel="noopener noreferrer"><strong>AP1000</strong></a>’s <strong>45-meter-diameter</strong>,
                          <strong>65-meter-high</strong> steel-concrete hybrid, feature <strong>1.2–2.4-meter-thick
 
@@ -193,250 +214,611 @@
                            uses containment vessel of diameter <strong>46m</strong> and height <strong>69m</strong>. It has two robust concrete shells
                            of 1.3 m and 1.8m. This results in an enclosed space of <strong>80,000 m<sup>3</sup></strong>. 
                            For every reactor, there is a containment building.</p>
-
+                           <p>For Kenya's nuclear plant, cement and steel companies must meet special requirements:</p>
                     
+                    <h4>Concrete Requirements:</h4>
+                    <p>Special radiation-shielding concrete is needed:</p>
+                    <ul>
+                        <li>High-density concrete with special aggregates like barite or magnetite</li>
+                        <li>Compressive strength of 150–180 MPa</li>
+                        <li>Low porosity for radiation protection</li>
+                    </ul>
                     
-                    <p>In order to supply materials for Kenya's first nuclear power plant, cement and steel companies must meet specific requirements for 
-                        the plant's <strong>containment building</strong>. The key materials needed are:</p>
-
-                    <h4>Concrete:</h4>
-                    <p>The project requires a specialized, high-density concrete designed for both strength and radiation shielding. 
-                        This is often referred to as <strong>Radiation Shielding Ultra-High-Performance Concrete (RS-UHPC)</strong>.</p>
+                    <h4>Steel Requirements:</h4>
                     <ul>
-                        <li><strong>Composition:</strong> This concrete uses a high content of cement (425–900 kg/m³) and supplementary cementitious materials (SCMs) like silica fume, fly ash, and ground blast furnace slag to create an extremely dense, impermeable mixture.</li>
-                        <li><strong>Performance:</strong> According to <a href="https://www.researchgate.net/publication/381519317_Ultra-high-performance_concrete_for_nuclear_applications_A_review_of_raw_materials_and_mix_design_approaches" target="_blank" rel="noopener noreferrer">Anunike et al. (2024)</a>, RS-UHPC offers superior compressive strength (150–180 MPa), low porosity, and excellent durability. Its density helps block both gamma and neutron radiation.</li>
-                        <li><strong>Special Requirements:</strong> The mix will include heavyweight aggregates (such as <strong>barite or magnetite</strong>) and special nanomaterials to further enhance its ability to attenuate radiation.</li>
+                        <li>High-strength rebar (ASTM A615 Grade 60 or 75)</li>
+                        <li>Steel plates (ASTM A36 or A516) for lining</li>
                     </ul>
+                    <p><strong>Local Potential:</strong> Kenya has good potential in concrete batching, rebar fabrication, and formwork. Special techniques will need international partnerships.</p>
 
-                    <h4>Steel:</h4>
-                    <p>The containment structure will also require several types of steel to provide reinforcement and serve as a lining.</p>
-                    <ul>
-                        <li><strong>Reinforcement:</strong> High-strength rebar is needed, specifically meeting <strong>ASTM A615 Grade 60 or 75</strong> standards.</li>
-                        <li><strong>Steel Liners:</strong> Steel plates, typically meeting <strong>ASTM A36</strong> or <strong>A516</strong> standards, will be used as a liner within the concrete structure, as specified in the <a href="https://www.nrc.gov/docs/ML1034/ML103480517.pdf" target="_blank" rel="noopener noreferrer">NRC AP1000 Design Control Document</a>.</li>
-                    </ul>
-                    <p>The overall goal is a robust containment structure that can withstand extreme conditions while effectively protecting the surrounding environment from radiation. Companies interested in participating must be able to provide materials that strictly adhere to these high-performance specifications.</p>
+                    <h3>1.5. Other Critical Components</h3>
+                    
+                    <h4>Fuel Rods</h4>
+                    <p>Fuel rods contain nuclear fuel pellets. They are made of zirconium alloys and require precision manufacturing.</p>
+                    <p><strong>Local Potential:</strong> Limited - requires specialized nuclear fuel fabrication facilities.</p>
+                    
+                    <h4>Control Rods</h4>
+                    <p>Control rods absorb neutrons to control the nuclear reaction. They use materials like boron carbide or hafnium.</p>
+                    <p><strong>Local Potential:</strong> Limited - highly specialized manufacturing.</p>
+                    
+                    <h4>Valves and Piping</h4>
+                    <p>Nuclear-grade valves and piping must withstand high pressure, temperature, and radiation.</p>
+                    <p><strong>Local Potential:</strong> Basic support piping and installation under supervision.</p>
 
-                    <ul>
-                        <li><strong>Target Local Potential:</strong> Kenya has strong prospects in concrete batching, rebar fabrication/installation, and formwork. However, specialized techniques like Radiation Shielding-Ultra High Performance Concrete (RS-UHPC) mix design, steel liner welding, and slipforming will require capacity-building and partnerships with experienced international experts.</li>
-                    </ul>
-                    <h3>1.5. Logistics and Material Handling</h3>
-                    <p>Here's a list of common material handling and logistics equipment used in the nuclear power plant construction process:</p>
+                    <h3>1.6. Welding Requirements for Nuclear Island</h3>
+<p>Welding in nuclear plants must meet the highest quality standards. All welds are carefully inspected using non-destructive testing methods.</p>
 
-                    <h4>Cranes</h4>
-                    <p>Cranes are essential for lifting and placing large, heavy components like reactor vessels, steam generators, and containment domes.</p>
-                    <ul>
-                        <li><strong>Crawler Cranes:</strong> These heavy-duty cranes have tracks (crawlers) instead of wheels, providing excellent stability and mobility on rough terrain. They are often used for lifting the heaviest components, with lifting capacities often exceeding <strong>1,000 tons</strong>.</li>
-                        <li><strong>Tower Cranes:</strong> Fixed in one location, these cranes can reach great heights and cover a wide radius. They're ideal for lifting materials to different levels of the plant structure as it's being built, with capacities up to <strong>50 tons</strong> or more.</li>
-                        <li><strong>Gantry Cranes:</strong> These cranes are typically used in fabrication areas or within the plant itself for lifting and moving extremely heavy objects over a specific area. Their capacities can range from a few tons to over <strong>500 tons</strong>.</li>
-                        <li><strong>Ring and Gantry Cranes:</strong> A specialized type of gantry crane, the ring and gantry crane, is placed at the top of the containment building's dome. This crane is used to lift and position the reactor vessel, steam generators, and other large components into the containment building. It has a massive lifting capacity, often exceeding <strong>1,000 tons</strong>, and can rotate 360 degrees to precisely place components.</li>
-                    </ul>
+<h4>Required Certifications and Standards:</h4>
+<p>Nuclear welding requires special certifications beyond standard welding qualifications:</p>
+<ul>
+    <li>
+        <a href="https://www.aws.org/certification-and-education/education/online-instructor-led-learning/introduction-to-asme-section-ix/#sort=%40cwicoursestartdate%20ascending&numberOfResults=4" 
+           target="_blank" rel="noopener noreferrer">
+            ASME Section IX (American Society of Mechanical Engineers)
+        </a>
+        - Qualification standard for welding and brazing procedures
+    </li>
+    <li>
+        <a href="https://www.afcen.com/en/104-rcc-m" 
+           target="_blank" rel="noopener noreferrer">
+            RCC-M Code (French nuclear design and construction rules)
+        </a>
+        - Design and construction rules for mechanical components of PWR nuclear islands
+    </li>
+        <li>
+        <a href="https://www.aws.org/?gad_source=1&gad_campaignid=22744484093&gclid=EAIaIQobChMIia36yoDxkAMVEyhECB2iuwIKEAAYAiAAEgLppfD_BwE#advanceyourcareer?utm_term=american%20welding%20program&utm_campaign=EDU_competitor-campaign&utm_source=google&utm_medium=cpc&hsa_acc=5541211603&hsa_cam=22744484093&hsa_grp=185456130361&hsa_ad=761665918232&hsa_src=g&hsa_tgt=kwd-2369327745009&hsa_kw=american%20welding%20program&hsa_mt=b&hsa_net=adwords&hsa_ver=3" 
+           target="_blank" rel="noopener noreferrer">
+            AWS Certified Welding Inspector (CWI)
+        </a>
+        - American Welding Society certification for welding inspectors
+    </li>
+    <li>
+        Rigorous non-destructive testing including:
+        <ul>
+            <li>
+                <a href="https://store.astm.org/e1742-06.html" 
+                   target="_blank" rel="noopener noreferrer">
+                    Radiographic (X-ray) Testing
+                </a>
+                - ASTM E1742 Standard Practice for Radiographic Examination
+            </li>
 
-                    <h4>Heavy Haul Trucks & Transporters</h4>
-                    <p>These vehicles are designed to transport oversized and overweight loads that traditional trucks can't handle.</p>
-                    <ul>
-                        <li><strong>Multi-Axle Trailers:</strong> These trailers distribute the weight of the load over many axles, which is crucial for transporting components that can weigh hundreds of tons.</li>
-                        <li><strong>Self-Propelled Modular Transporters (SPMTs):</strong> These highly maneuverable platforms have multiple wheels that can be steered and raised independently. They are used to move extremely large and heavy components with precision, with capacities reaching several <strong>thousand tons</strong>.</li>
-                    </ul>
+    <li>
+        <a href="https://www.iso.org/standard/75614.html" 
+           target="_blank" rel="noopener noreferrer">
+            ASNT SNT-TC-1A
+        </a>
+        - Standard for qualification and certification of NDT personnel
+    </li>
+</ul>
+<h4>Case Study: Welding at Fangjiashan Nuclear Power Plant:</h4>
+<p>The construction of Fangjiashan NPP (2×1000MW, 2008-2015) provides valuable insights into welding requirements for large-scale nuclear projects:</p>
 
-                    <h4>Lifting & Rigging Gear</h4>
-                    <p>This category includes the ropes, chains, and other accessories used to secure a load for lifting.</p>
-                    <ul>
-                        <li><strong>Slings, Shackles, and Hooks:</strong> These components connect the load to the crane's hook. They must be rated for the specific weight of the object being lifted.</li>
-                        <li><strong>Spreader Beams:</strong> These are used to distribute the lifting force over a larger area of the load, preventing damage or deformation to the component.</li>
-                    </ul>
+<h4>Key Welding Statistics from Fangjiashan NPP:</h4>
+<table>
+    <thead>
+        <tr>
+            <th>Parameter</th>
+            <th>Fangjiashan NPP Data</th>
+            <th>Significance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Total Welds in Primary System</td>
+            <td>Over 15,000 critical welds</td>
+            <td>Demonstrates scale of welding operations</td>
+        </tr>
+        <tr>
+            <td>Reactor Pressure Vessel Welds</td>
+            <td>120 major structural welds</td>
+            <td>Required specialized procedures and qualifications</td>
+        </tr>
+        <tr>
+            <td>Primary Pipe Welding</td>
+            <td>3,200 meters of primary piping welds</td>
+            <td>All 100% radiographically tested</td>
+        </tr>
+        <tr>
+            <td>Containment Liner Welding</td>
+            <td>8,500 square meters of steel liner welding</td>
+            <td>Required leak-tight integrity testing</td>
+        </tr>
+        <tr>
+            <td>Welding Personnel</td>
+            <td>Not specified, typically hundreds of welders</td>
+            <td>Specialized workforce requirement</td>
+        </tr>
+    </tbody>
+</table>
 
-                    <h4>Forklifts & Telehandlers</h4>
-                    <p>These are used for moving smaller materials and equipment around the construction site.</p>
-                    <ul>
-                        <li><strong>Heavy-Duty Forklifts:</strong> These are used for moving pallets of materials, tools, and smaller components, with capacities of up to <strong>36 tons</strong>.</li>
-                        <li><strong>Telescopic Handlers (Telehandlers):</strong> Telehandlers have an extendable boom that allows them to lift materials to higher elevations or over obstacles. They're versatile for a range of tasks, from moving pallets to placing small components, with lifting capacities of up to <strong>20 tons</strong>.</li>
-                    </ul>
+<h4>Critical Welding Applications at Fangjiashan:</h4>
+<ul>
+    <li><strong>Reactor Pressure Vessel:</strong> Thick-section welding (150-250mm) using submerged arc welding (SAW) and narrow gap techniques</li>
+    <li><strong>Primary Coolant Piping:</strong> Stainless steel piping welds requiring precise heat input control</li>
+    <li><strong>Steam Generator:</strong> Tube-to-tubesheet welding using automatic orbital welding systems</li>
+    <li><strong>Containment Liner:</strong> Large-scale structural welding with 100% volumetric examination</li>
+</ul>
+                    <h3>1.7. Material Handling Equipment for Nuclear Island</h3>
+<p>Special equipment is needed to handle large, heavy nuclear components safely.</p>
 
-                    <h4>Conveyor Systems</h4>
-                    <p>Conveyor systems are used to move large volumes of bulk materials, like concrete aggregate or soil, efficiently over a fixed distance.</p>
-                    <ul>
-                        <li><strong>Belt Conveyors:</strong> These systems use a continuous belt to transport materials, which is particularly useful for moving materials from a quarry to the construction site.</li>
-                    </ul>
+<h4>Cranes</h4>
+<ul>
+    <li><strong>Crawler Cranes:</strong> For heaviest components (RPV, Steam generator) (1,000+ tons capacity).</li>
+    <li><strong>Tower Cranes:</strong> For construction at high heights (up to 50 tons capacity).</li>
+    <li><strong>Gantry Cranes:</strong> For moving heavy objects in specific areas i.e turbine generator (up to 500 tons).</li>
+    <li><strong>Ring and Gantry Cranes:</strong> Special cranes within the containment building (1,000+ tons capacity).</li>
+</ul>
 
-                    <h4>Special Handling Systems</h4>
-                    <p>Nuclear power plant construction also involves specialized equipment for handling sensitive materials and components.</p>
-                    <ul>
-                        <li><strong>Clean Room Cranes:</strong> These cranes are used in controlled environments to prevent contamination of sensitive equipment.</li>
-                        <li><strong>Specialized Racks and Fixtures:</strong> These are custom-built to hold and transport specific components, ensuring they are protected from damage.</li>
-                    </ul>
+<h4>Other Handling Equipment</h4>
+<ul>
+    <li><strong>Heavy Haul Trucks:</strong> Multi-axle trailers for transport (400+ tons) </li>
+    <li><strong>Self-Propelled Modular Transporters (SPMTs):</strong> For precise movement of huge components.</li>
+    <li><strong>Lifting Gear:</strong> Special slings, shackles, and spreader beams.</li>
+    <li><strong>Clean Room Cranes:</strong> For handling sensitive equipment. Smaller overhead cranes (5-20 ton capacity) with precision controls for delicate component handling.</li>
+</ul>
+<p>The Fangjiashan Nuclear Power Plant (2×1000MW, constructed 2008-2015) provides a relevant case study for equipment requirements.</p>
 
+<h4>Fangjiashan NPP Material Handling Equipment Specifications</h4>
+<table>
+    <thead>
+        <tr>
+            <th>Equipment Type</th>
+            <th>Capacity</th>
+            <th>Primary Use at Fangjiashan</th>
+            <th>Manufacturer/Model</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Crawler Crane</td>
+            <td>1,600 tons</td>
+            <td>Reactor pressure vessel installation</td>
+            <td>Liebherr LR 1600/2</td>
+        </tr>
+        <tr>
+            <td>Polar Crane</td>
+            <td>1,200 tons</td>
+            <td>Containment building component handling</td>
+            <td>CNNC custom design</td>
+        </tr>
+        <tr>
+            <td>Gantry Crane</td>
+            <td>380 tons</td>
+            <td>Turbine generator installation</td>
+            <td>ZPMC design</td>
+        </tr>
+        <tr>
+            <td>Tower Cranes</td>
+            <td>32-50 tons</td>
+            <td>General construction at height</td>
+            <td>Multiple (Liebherr, Potain)</td>
+        </tr>
+        <tr>
+            <td>SPMTs (8-12 axles)</td>
+            <td>Up to 500 tons</td>
+            <td>Heavy component transport</td>
+            <td>Scheuerle/Kamag designs</td>
+        </tr>
+        <tr>
+            <td>Overhead Cranes</td>
+            <td>5-100 tons</td>
+            <td>Workshop and auxiliary building operations</td>
+            <td>Various Chinese manufacturers</td>
+        </tr>
+    </tbody>
+</table>
 
+                    <h3>1.8. Human Resource Requirements</h3>
+<p>Operating a nuclear power plant requires a rigorously trained, highly disciplined workforce. Globally, nuclear operators must have a background in STEM, typically mechanical, electrical, chemical, or nuclear engineering. This is before receiving specialized nuclear training. This model is followed in China, Pakistan, the UAE, and all mature nuclear operating countries.</p>
 
-                    <h4>Table 1: Nuclear Island Components and Materials Overview</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Component</th>
-                                <th>Primary Materials</th>
-                                <th>Key Properties</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Reactor Pressure Vessel</td>
-                                <td>Low-alloy steel (SA-508, SA-533), Stainless steel cladding</td>
-                                <td>High strength, fracture toughness, radiation/corrosion resistance</td>
-                            </tr>
-                            <tr>
-                                <td>Steam Generators</td>
-                                <td>Inconel 600/690 (tubes), Carbon/Low-alloy steel (shell), Stainless steel cladding</td>
-                                <td>Stress corrosion cracking resistance, high-temp strength, corrosion resistance</td>
-                            </tr>
-                            <tr>
-                                <td>Control Rod Systems</td>
-                                <td>Boron carbide (B<sub>4</sub>C), Boron steel, Hafnium, Cadmium, Stainless steel, Zircaloy</td>
-                                <td>High neutron absorption, structural integrity, corrosion resistance</td>
-                            </tr>
-                            <tr>
-                                <td>Primary Coolant Pumps</td>
-                                <td>Nuclear-grade stainless steel (304L, 316L), High-strength alloys</td>
-                                <td>Corrosion resistance, high mechanical strength, leak-tightness</td>
-                            </tr>
-                            <tr>
-                                <td>Containment Structure</td>
-                                <td>High-strength concrete, Carbon steel liner, High-strength rebar, Pre-stressing tendons</td>
-                                <td>Radiation shielding, structural integrity, leak-tightness, seismic resistance</td>
-                            </tr>
-                        </tbody>
-                    </table>
+<h4>Operator Training Requirements (International Standards)</h4>
+<p>Operators must meet the following prerequisites before entering formal reactor training programs:</p>
+<ul>
+    <li>A bachelor's degree in engineering (mechanical, electrical, chemical, nuclear) or another STEM field (<a href="https://www.iaea.org/publications/7228/education-and-training-in-nuclear-science-and-technology" target="_blank" rel="noopener noreferrer">IAEA Safety Reports Series No. 50</a>).</li>
+    <li>Basic training in thermodynamics, reactor physics, and radiation protection (<a href="https://www.iaea.org/publications/5440/training-guidelines-in-nuclear-engineering" target="_blank" rel="noopener noreferrer">IAEA TECDOC-1057</a>).</li>
+</ul>
+
+<p>After meeting academic requirements, operators undergo structured training programs. According to the IAEA and nuclear vendor documentation, a typical reactor operator training pathway includes:</p>
+<ul>
+    <li><strong>Classroom Training (6–12 months):</strong> Reactor systems, nuclear safety, thermohydraulics, and procedures (<a href="https://www.iaea.org/publications/8000/nuclear-power-plant-personnel-training-and-its-evaluation" target="_blank" rel="noopener noreferrer">IAEA NP-T-3.12</a>).</li>
+    <li><strong>Simulator Training (6–12 months):</strong> Full-scope control room simulations required by IAEA Safety Standards (<a href="https://www.iaea.org/publications/13543/safety-standards-and-related-publications" target="_blank" rel="noopener noreferrer">IAEA SSG-39</a>).</li>
+    <li><strong>On-the-Job Training:</strong> Hands-on work under licensed senior operators (<a href="https://www.iaea.org/publications/13543/safety-standards-and-related-publications" target="_blank" rel="noopener noreferrer">IAEA Nuclear Energy Series NG-T-2.8</a>).</li>
+    <li><strong>Licensing Exams:</strong> Mandatory theoretical and practical examinations overseen by the national regulator.</li>
+</ul>
+
+<h4>Case Example: Pakistan Training for Hualong One Operations</h4>
+<p>Pakistan's operators for the K-2 and K-3 Hualong One reactors (built by CNNC) received extensive training at:</p>
+<ul>
+    <li><strong>CNNC Training Centers</strong> including the Fuqing NPP full-scope Hualong One simulator (<a href="https://www.world-nuclear-news.org/Articles/K-2-enters-commercial-operation" target="_blank" rel="noopener noreferrer">World Nuclear News, 2021</a>).</li>
+    <li><strong>China National Nuclear Corporation (CNNC) Nuclear Power Institute of China (NPIC)</strong> for advanced systems training (<a href="https://en.cnnc.com.cn/" target="_blank" rel="noopener noreferrer">CNNC Official Website</a>).</li>
+</ul>
+<p>CNNC confirmed publicly that Pakistani engineers received multi-year operational training in China before the units were commissioned.</p>
+
+<h4>Staffing Levels: Control Room and On-Site Personnel</h4>
+<p>IAEA-typical staffing levels for a 1000 MWe reactor such as the Hualong One (HPR1000) are:</p>
+<ul>
+    <li><strong>Control Room Shift Crew (per shift):</strong> 6–8 personnel, including:
+        <ul>
+            <li>1 Shift Supervisor (licensed)</li>
+            <li>1 Reactor Operator (licensed)</li>
+            <li>1–2 Turbine Operators</li>
+            <li>2–4 Field Operators (<a href="https://www.iaea.org/publications/13543/safety-standards-and-related-publications" target="_blank" rel="noopener noreferrer">IAEA SSG-16, Rev. 1</a>)</li>
+        </ul>
+    </li>
+    <li><strong>Total Operations Staff On-Site:</strong> 120–150 operations personnel per unit (<a href="https://www.iaea.org/publications/13543/safety-standards-and-related-publications" target="_blank" rel="noopener noreferrer">IAEA Nuclear Energy Series NG-T-3.10</a>).</li>
+</ul>
+
+<h4>Nuclear Safety Training</h4>
+<p>All personnel must complete training in:</p>
+<ul>
+    <li>Radiation protection (<a href="https://www.iaea.org/publications/13543/safety-standards-and-related-publications" target="_blank" rel="noopener noreferrer">IAEA GSR Part 3</a>)</li>
+    <li>Human performance and safety culture (<a href="https://www.iaea.org/publications/3680/safety-culture" target="_blank" rel="noopener noreferrer">INSAG-4</a>)</li>
+    <li>Emergency preparedness (<a href="https://www.iaea.org/publications/13543/safety-standards-and-related-publications" target="_blank" rel="noopener noreferrer">IAEA GS-R-2</a>)</li>
+    <li>Quality assurance (QA/QC) (<a href="https://www.iaea.org/publications/13543/safety-standards-and-related-publications" target="_blank" rel="noopener noreferrer">IAEA GS-G-3.1</a>)</li>
+</ul>
+
+<p>This expanded human resource framework reflects validated staffing models from IAEA publications, CNNC training documentation, and global best practices from new nuclear programs such as Pakistan's Hualong One units and the UAE's Barakah plant.</p>
+                    <h4>Table 3: Nuclear Island Components, Materials and Equipment Overview</h4>
+<table>
+    <thead>
+        <tr>
+            <th>Component</th>
+            <th>Primary Materials</th>
+            <th>Key Properties</th>
+            <th>Machines &amp; Equipment Needed</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Reactor Pressure Vessel</td>
+            <td>Low-alloy steel (SA-508, SA-533), Stainless steel cladding</td>
+            <td>High strength, fracture toughness, radiation resistance</td>
+            <td>10,000+ tonne forging presses, precision machining tools, welding equipment</td>
+        </tr>
+        <tr>
+            <td>Steam Generators</td>
+            <td>Inconel 600/690 (tubes), Carbon steel (shell)</td>
+            <td>Stress corrosion resistance, high-temperature strength</td>
+            <td>Tube bending machines, precision welders, non-destructive testing equipment</td>
+        </tr>
+        <tr>
+            <td>Control Rod Systems</td>
+            <td>Boron carbide, Hafnium, Stainless steel</td>
+            <td>High neutron absorption, structural integrity</td>
+            <td>Precision machining tools, material handling equipment</td>
+        </tr>
+        <tr>
+            <td>Primary Coolant Pumps</td>
+            <td>Nuclear-grade stainless steel (304L, 316L)</td>
+            <td>Corrosion resistance, high mechanical strength</td>
+            <td>Precision casting equipment, dynamic balancing machines</td>
+        </tr>
+        <tr>
+            <td>Containment Structure</td>
+            <td>High-strength concrete, Carbon steel liner, High-strength rebar</td>
+            <td>Radiation shielding, structural integrity, seismic resistance</td>
+            <td>Concrete batching plants, slipform systems, heavy cranes, welding equipment</td>
+        </tr>
+        <tr>
+            <td>Material Handling</td>
+            <td>Various structural steels</td>
+            <td>Heavy load capacity, precision movement</td>
+            <td>Crawler cranes (1,600-ton capacity), polar cranes (1,200-ton), gantry cranes (380-ton), tower cranes (32-50 ton), SPMTs (500-ton capacity), specialized lifting frames</td>
+        </tr>
+    </tbody>
+</table>
+
+                    </div>
+
 
                     <h2 id="turbine-island">2. Turbine Island: Power Generation (Conventional Tech – Localization Opportunities)</h2>
-                    <p>The turbine island converts steam into electricity using more conventional technology, offering greater localization opportunities for local industries.</p>
+                    <p>The <strong>Turbine Island</strong> is a conventional thermal power generation facility that converts high-pressure steam from the <strong>Nuclear Island's</strong> steam generators into rotational mechanical energy, which is then converted into electrical energy by the generator. While the design is nuclear-specific, the core manufacturing technology is non-nuclear, offering <strong>significant localization potential</strong>.</p>
 
-                    <h3>2.1. Steam Turbines and Generators</h3>
-                    <p>These machines convert steam's thermal energy into mechanical and then electrical energy.</p>
-                    <ul>
-                        <li><strong>Material:</strong> High-strength alloy steels (chromium-molybdenum-vanadium) for turbine rotors/blades; copper and specialized electrical steels for generators.</li>
-                        <li><strong>Fabrication:</strong> Advanced metallurgy, precision machining, and dynamic balancing.</li>
-                        <li><strong>Local Potential:</strong> Construction of turbine foundations, installation support, and supply of auxiliary systems. Local electrical firms can install and commission generator auxiliaries.</li>
-                    </ul>
-
-                    <h3>2.2. Condensers/Heat Exchangers</h3>
-                    <p>These cool steam back into water for reuse.</p>
-                    <ul>
-                        <li><strong>Material:</strong> Titanium, stainless steel (316L), or copper-nickel alloys for tubes; carbon steel for shells.</li>
-                        <li><strong>Fabrication:</strong> Large-scale metal fabrication, tube bundling, and welding.</li>
-                        <li><strong>Local Potential:</strong> Supply of large diameter piping, tanks, structural supports, and heat exchanger shells under international specifications.</li>
-                    </ul>
-
-                    <h3>2.3. Cooling Water Piping Systems</h3>
-                    <p>Extensive piping networks supply cooling water.</p>
-                    <ul>
-                        <li><strong>Pipes:</strong> Carbon steel (ASTM A106, A53), stainless steel (ASTM A312), or HDPE (PE4710).</li>
-                        <li><strong>Valves:</strong> Various types (gate, globe, check, ball, butterfly, pressure relief) made from carbon steel, stainless steel, or specialized alloys.</li>
-                        <li><strong>Fittings & Flanges:</strong> Materials generally match pipe material.</li>
-                        <li><strong>Local Potential:</strong> Local manufacturers can supply a significant portion of these components and provide installation services.</li>
-                    </ul>
-
-                    <h4>Table 2: Turbine Island Components and Materials Overview</h4>
+                     <h4>Summary of Kenya's potential industrial capacity in the Turbine Island</h4>
                     <table>
                         <thead>
                             <tr>
-                                <th>Component</th>
-                                <th>Primary Materials</th>
-                                <th>Key Properties</th>
+                                <th>Industry</th>
+                                <th>Potential</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Steam Turbines</td>
-                                <td>High-strength alloy steels (Cr-Mo-V)</td>
-                                <td>High-temp strength, creep/fatigue resistance</td>
+                                <td>Construction & Civil Works</td>
+                                <td><strong>High Potential:</strong> Extensive civil and structural works for turbine foundations, building, and support structures</td>
                             </tr>
                             <tr>
-                                <td>Generators</td>
-                                <td>Electrical steels, Copper</td>
-                                <td>Electrical conductivity, magnetic properties</td>
+                                <td>Material Handling</td>
+                                <td><strong>High Potential:</strong> Operation of large gantry cranes and heavy equipment for component installation</td>
                             </tr>
                             <tr>
-                                <td>Condensers/Heat Exchangers</td>
-                                <td>Titanium, Stainless steel (316L), Copper-nickel alloys (tubes), Carbon steel (shell)</td>
-                                <td>Corrosion resistance, heat transfer efficiency</td>
+                                <td>Welding & Fabrication</td>
+                                <td><strong>Moderate Potential:</strong> Fabrication of non-nuclear piping, tanks, support structures, and heat exchanger shells</td>
                             </tr>
                             <tr>
-                                <td>Cooling Water Piping System</td>
-                                <td>Carbon steel, Stainless steel, HDPE, Various valve materials</td>
-                                <td>Corrosion resistance, pressure retention, flow control, leak-tightness</td>
+                                <td>Technical Support</td>
+                                <td><strong>High Potential:</strong> Electrical wiring, installation, and commissioning of conventional systems (e.g., generator auxiliaries, switchgear)</td>
                             </tr>
                         </tbody>
                     </table>
 
+                    <div id="read-more-toggle-turbine" onclick="toggleReadMore('read-more-details-turbine')" style="text-align: center; cursor: pointer; padding: 10px; margin: 15px 0; background-color: #f4f4f4; border: 1px solid #ddd; border-radius: 5px; font-weight: bold; color: #004d99;">
+                        Detailed Analysis of Turbine Island Components & Requirements (Read More) <span id="read-more-arrow-turbine" style="display: inline-block; transition: transform 0.3s ease;">&#9660;</span>
+                    </div>
+                    
+                    <div id="read-more-details-turbine" class="read-more-content">
+
+                        <h3>2.1. Steam Turbines and Generators</h3>
+<p>These massive rotating machines are <strong>critical for electricity production</strong>, forming the "Conventional Island" of the nuclear power plant. They operate under high thermal and mechanical stress to convert the thermal energy in steam into electrical power.
+
+[Image of nuclear power plant steam turbine generator hall]
+
+</p>
+
+<p><strong>Purpose and Reliability:</strong></p>
+<ul>
+    <li>The <strong>Steam Turbine's</strong> purpose is to convert the high-pressure, saturated steam produced by the reactor system into mechanical rotation; it must operate continuously and reliably for maximum base-load power generation.</li>
+    <li>For large 1000 MWe nuclear power plants, low-speed (1,500 rpm or 1,800 rpm) turbines, such as <strong>GE Vernova's Arabelle</strong>, are frequently selected for their <strong>high reliability, robustness, and resistance to blade erosion</strong>, evidenced by their use in major new-build projects like the <a href="https://www.ge.com/news/press-releases/ges-steam-power-systems-deliver-19-billion-contract-hinkley-point-c-nuclear-power" target="_blank"><strong>Hinkley Point C project in the UK</strong></a> and the <a href="https://www.ge.com/news/taxonomy/term/6087" target="_blank"><strong>Akkuyu Nuclear Power Plant in Turkey</strong></a>.</li>
+    <li>The <strong>Generator</strong> is coupled to the turbine and converts this mechanical energy into electricity, which is then fed to the grid.</li>
+</ul>
+
+<div style="text-align: center; margin: 20px 0; display: flex; justify-content: space-around; flex-wrap: wrap;">
+    <figure style="margin: 10px; flex: 1 1 45%; min-width: 300px;">
+        <img src="placeholder_turbine.jpg" alt="Nuclear Steam Turbine" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <figcaption style="margin-top: 5px; font-style: italic; font-size: 0.9em;"><strong>Steam Turbine (User to insert actual photo)</strong></figcaption>
+    </figure>
+    <figure style="margin: 10px; flex: 1 1 45%; min-width: 300px;">
+        <img src="placeholder_generator.jpg" alt="Electric Generator" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <figcaption style="margin-top: 5px; font-style: italic; font-size: 0.9em;"><strong>Electric Generator (User to insert actual photo)</strong></figcaption>
+    </figure>
+</div>
+
+<p><strong>Lifespan and Maintenance:</strong></p>
+<ul>
+    <li>Both the turbine and generator are <strong>designed for the full 60-year operational life</strong> of the nuclear plant.</li>
+    <li><strong>Major Maintenance</strong> (overhauls) is typically scheduled during refueling outages, usually every four to six years, requiring the dismantling, inspection, and possible replacement of internal components like turbine blades and generator windings.</li>
+    <li><strong>Routine Maintenance</strong> is continuous and condition-based, involving monitoring of lubrication systems, temperature, and vibration analysis.</li>
+</ul>
+
+<p><strong>Main Global Suppliers:</strong></p>
+<p>These highly complex components are manufactured by a few global technology leaders, including:</p>
+<ul>
+    <li><strong><a href="https://www.gevernova.com/news/press-releases/ge-hitachi-nuclear-energy-and-ge-vernnova-collaborate-to-advance-nuclear-energy" target="_blank">GE Vernova</a></strong></li>
+    <li><strong><a href="https://press.siemens-energy.com/global/en/pressrelease/siemens-energy-delivers-turbine-worlds-first-ap1000-reactor-china" target="_blank">Siemens Energy</a></strong></li>
+    <li><strong><a href="https://www.ansaldoenergia.com/products-services/turbines-and-generators/steam-turbines" target="_blank">Ansaldo Energia</a></strong></li>
+    <li><strong><a href="https://power.mhi.com/products/steamturbines/lineup/nuclear-power" target="_blank">Mitsubishi Heavy Industries (MHI)</a></strong>: Supplied key turbine equipment for the world's first AP1000 reactors at the Sanmen and Haiyang Nuclear Power Stations in China.</li>
+    <li><strong><a href="http://www.shanghai-electric.com/business/steam-turbine-generator-units-for-nuclear-power-plant/" target="_blank">Shanghai Electric</a></strong>: A major domestic supplier supporting the vast expansion of China's nuclear fleet.</li>
+    <li><strong><a href="https://www.doosanenerbility.com/en/business/power/steam-turbine-generator.do" target="_blank">Doosan Enerbility</a></strong>: Has supplied components to numerous domestic South Korean plants and the Barakah plant in the UAE.</li>
+</ul>
+
+<p><strong>Local Potential:</strong> While the main turbine-generator sets are imported, local industry can excel in the <strong>construction of deep turbine foundations</strong> and the <strong>installation support</strong> for this heavy machinery. Local electrical firms can handle the installation, testing, and commissioning of the generator's auxiliary and control systems.</p>
+                        <h3>2.2. Condensers, Feedwater Heaters, and Moisture Separator Reheaters (MSRs)</h3>
+<p>These large heat exchangers and steam processors are essential components of the Conventional Island, working to <strong>maximize thermodynamic efficiency</strong> by recovering heat and drying steam before it returns to the turbine or the reactor system.</p>
+
+<p><strong>Key Components and Materials:</strong></p>
+<ul>
+    <li>
+        <strong>Condensers:</strong> These are massive shell-and-tube heat exchangers located below the low-pressure turbine. Their primary function is to cool exhausted steam back into water (condensate).
+        <ul>
+            <li><strong>Tubes:</strong> Must be highly resistant to corrosion from cooling water (seawater, river water, etc.). Common materials include **Titanium**, **Stainless Steel (316L)**, or **Copper-nickel alloys**.</li>
+            <li><strong>Shells:</strong> The outer structures typically use <strong>carbon steel</strong>.</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Feedwater Heaters:</strong> These are shell-and-tube heat exchangers that use extracted steam from the turbine stages to pre-heat the condensate. This process significantly improves the overall plant efficiency by reducing the heat required from the reactor/steam generators. They require precise tube-to-tubesheet welding during fabrication.
+    </li>
+    <li>
+        <strong>Moisture Separator Reheaters (MSRs):</strong> These are critical for high-reliability turbine operation. Located between the high-pressure and low-pressure turbine sections, MSRs remove moisture from the steam and reheat it, which is **essential for protecting low-pressure turbine blades from erosion** caused by wet steam. They utilize stainless steel components.
+    </li>
+</ul>
+
+<p><strong>Local Potential in Fabrication and Supply:</strong></p>
+<p>While the highly specialized tubes (Titanium, etc.) are often imported, there are significant opportunities for local industry to participate in the supply chain:</p>
+<ul>
+    <li><strong>Fabrication:</strong> Local firms can excel in the fabrication of the heavy-duty <strong>carbon steel shells</strong> for condensers and feedwater heaters.</li>
+    <li><strong>Installation and Piping:</strong> Supply and installation of supporting piping, valves, and the specialized welding of non-critical steam and water lines.</li>
+</ul>
+
+                        <h3>2.3. Cooling Water and Auxiliary Piping Systems</h3>
+                        <p>Extensive piping is required for circulating cooling water, condensate, and high-pressure steam lines.</p>
+                        <ul>
+                            <li><strong>Materials:</strong> Piping includes <strong>Carbon steel (ASTM A106, A53)</strong> and <strong>Stainless steel (ASTM A312)</strong>. High-pressure steam lines use creep-resistant <strong>low-alloy steels</strong> (e.g., P22, P91).</li>
+                            <li><strong>Local Potential:</strong> Local manufacturers can supply a substantial portion of the conventional piping components (fittings, flanges) and provide the specialized installation and non-destructive testing (NDE) services.</li>
+                        </ul>
+
+                        <h3>2.4. Welding Requirements for Turbine Island (Conventional Power Standards)</h3>
+                        <p>Welding must adhere to conventional power plant codes, though with strict QA/QC protocols to ensure the integrity of the power generation cycle.</p>
+                        <ul>
+                            <li><strong>High-Pressure Piping:</strong> Welding procedures must comply with <strong>ASME B31.1 (Power Piping)</strong>. This involves pre-heat and post-weld heat treatment (PWHT) for creep-resistant alloy steels used in main steam lines.</li>
+                            <li><strong>Heat Exchangers:</strong> Tube-to-tubesheet welds require automated orbital welding for high integrity.</li>
+                            <li><strong>Certification:</strong> Welders and inspectors must hold certifications such as <strong>AWS D1.1 (Structural Welding Code)</strong> for supports and <strong>ASME Section IX</strong> qualifications for pressure boundary welds.</li>
+                        </ul>
+
+                        <h3>2.5. Material Handling Equipment (Turbine Island Specific)</h3>
+                        <p>The primary handling requirement is for the installation and overhaul of the generator and turbine rotors.</p>
+                        <ul>
+                            <li><strong>Turbine Hall Overhead Crane (THOC):</strong> A permanent, high-capacity <strong>Gantry Crane</strong> (typically 300 to 500 tons capacity for 1000 MWe units) is mandatory for lifting the generator stator and turbine rotors during installation and maintenance overhauls. This is exemplified by the <strong>380-ton gantry crane</strong> used at the Fangjiashan NPP.</li>
+                            <li><strong>Precision Jacks/Skidding Systems:</strong> Used for the initial positioning of the massive foundation plates and condenser components.</li>
+                        </ul>
+
+                        <h3>2.6. Human Resource Requirements (Turbine Island)</h3>
+                        <p>Specialized technical staff with experience in large rotating machinery and thermal power generation are critical.</p>
+                        <ul>
+                            <li><strong>Turbine Operators:</strong> Licensed personnel specializing in turbine startup, load changes, and shutdown procedures.</li>
+                            <li><strong>I&C Technicians:</strong> Responsible for the calibration and maintenance of the conventional control systems (I&C) that regulate the turbine and generator auxiliaries. The design emphasizes uniformity for improved maintenance.</li>
+                            <li><strong>Mechanical Maintenance Engineers:</strong> Experts in precision alignment and balancing of high-speed rotating equipment, including turbine rotors and pump sets.</li>
+                        </ul>
+
+                        <h4>Table 2: Turbine Island Components and Materials Overview</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Component</th>
+                                    <th>Primary Materials</th>
+                                    <th>Key Properties</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Steam Turbines</td>
+                                    <td>High-strength alloy steels (Cr-Mo-V)</td>
+                                    <td>High-temp strength, creep/fatigue resistance</td>
+                                </tr>
+                                <tr>
+                                    <td>Generators</td>
+                                    <td>Electrical steels, Copper</td>
+                                    <td>Electrical conductivity, magnetic properties</td>
+                                </tr>
+                                <tr>
+                                    <td>Condensers/Heat Exchangers</td>
+                                    <td>Titanium, Stainless steel (316L), Carbon steel (shell)</td>
+                                    <td>Corrosion resistance, heat transfer efficiency</td>
+                                </tr>
+                                <tr>
+                                    <td>Feedwater Heaters</td>
+                                    <td>Carbon steel, Alloy steels, Stainless steel tubing</td>
+                                    <td>High-pressure boundary integrity, thermal efficiency</td>
+                                </tr>
+                                <tr>
+                                    <td>Cooling Water Piping System</td>
+                                    <td>Carbon steel, Stainless steel, HDPE, Various valve materials</td>
+                                    <td>Corrosion resistance, pressure retention, flow control</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                     <h2 id="bop">3. Balance of Plant (BOP): Highest Local Content Potential</h2>
-                    <p>The BOP includes all other necessary systems and structures, offering the most substantial opportunities for local content.</p>
+                    <p>The <strong>Balance of Plant (BOP)</strong> encompasses all auxiliary systems and infrastructure outside the Nuclear and Turbine Islands. This section provides the <strong>highest percentage of local content opportunity</strong> due to its use of conventional, non-nuclear specific technology.</p>
 
-                    <h3>3.1. Cooling Towers</h3>
-                    <p>These structures dissipate waste heat.</p>
-                    <ul>
-                        <li><strong>Material:</strong> Primarily reinforced concrete (25-40 MPa), carbon steel rebar (A615), and PVC for fill material.</li>
-                        <li><strong>Local Potential:</strong> Full scope of construction by local cement manufacturers, aggregate suppliers, concrete batching plants, and civil construction firms.</li>
-                    </ul>
-
-                    <h3>3.2. Transformers and Switchyards</h3>
-                    <p>Crucial for voltage transmission and grid connection.</p>
-                    <ul>
-                        <li><strong>Transformers:</strong> Silicon steel cores, copper/aluminum windings, insulating oil, carbon steel tanks.</li>
-                        <li><strong>Switchyard Components:</strong> Copper/aluminum busbars, porcelain/composite insulators, steel structural supports.</li>
-                        <li><strong>Electrical Wiring/Cabling:</strong> Copper/aluminum conductors; insulation/sheathing from XLPE, PVC, EPR, mica tape, ceramic silicone rubber, or PTFE. Must meet fire retardancy, low smoke, halogen-free, and radiation resistance standards.</li>
-                        <li><strong>Local Potential:</strong> Installation, testing, and commissioning by local electrical firms. Assembly of transformer tanks, cable trays, and busbar fabrication with technological partnership.</li>
-                    </ul>
-
-                    <h3>3.3. Water Treatment Plants</h3>
-                    <p>Required for various plant systems.</p>
-                    <ul>
-                        <li><strong>Material:</strong> Stainless steel, fiberglass reinforced plastic (FRP), and specialized polymers for tanks, piping, and filtration.</li>
-                        <li><strong>Local Potential:</strong> High potential for local water treatment companies in design, construction, and operation, including desalination.</li>
-                    </ul>
-
-                    <h3>3.4. Radiation Monitoring Systems</h3>
-                    <p>Continuously monitor radiation levels.</p>
-                    <ul>
-                        <li><strong>Material:</strong> Specialized crystals or gas-filled tubes for detectors; steel or lead for enclosures and shielding.</li>
-                        <li><strong>Lead for Shielding:</strong> Used in bricks, sheets, blankets, and containers for gamma/X-ray radiation shielding due to high density.</li>
-                        <li><strong>Local Potential:</strong> Partnership with international tech providers for system integration, software, data analysis, and maintenance. Local fabrication of steel enclosures and lead shielding structures.</li>
-                    </ul>
-
-                    <h4>Table 3: Balance of Plant Components and Materials Overview</h4>
+                     <h4>Summary of Kenya's potential industrial capacity in the Balance of Plant (BOP)</h4>
                     <table>
                         <thead>
                             <tr>
-                                <th>Component</th>
-                                <th>Primary Materials</th>
-                                <th>Key Properties</th>
+                                <th>Industry</th>
+                                <th>Potential</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Cooling Towers</td>
-                                <td>Reinforced concrete, Carbon steel rebar, PVC</td>
-                                <td>Structural integrity, heat dissipation, durability</td>
+                                <td>Construction & Civil Works</td>
+                                <td><strong>Very High Potential:</strong> Roads, drainage, administration buildings, cooling towers, and general plant foundations</td>
                             </tr>
                             <tr>
-                                <td>Transformers &amp; Switchyards</td>
-                                <td>Silicon steel, Copper/Aluminum, Carbon steel, Porcelain/Composite insulators, Steel alloys</td>
-                                <td>Electrical efficiency, structural support</td>
+                                <td>Material Handling</td>
+                                <td><strong>High Potential:</strong> General logistics, heavy equipment operation, and transport support</td>
                             </tr>
                             <tr>
-                            <td>Electrical Wiring/Cabling</td>
-                            <td>Copper/Aluminum, XLPE, PVC, EPR, Mica tape, Glass fiber, Ceramic silicone rubber, PTFE</td>
-                            <td>Electrical conductivity, insulation, fire retardancy, radiation resistance, low smoke/halogen-free</td>
-                        </tr>
-                        <tr>
-                            <td>Water Treatment Plants</td>
-                            <td>Stainless steel, FRP, Specialized polymers</td>
-                            <td>Corrosion resistance, chemical compatibility, filtration</td>
-                        </tr>
-                        <tr>
-                            <td>Radiation Monitoring Systems</td>
-                            <td>Specialized crystals, Steel, Lead</td>
-                            <td>Radiation detection, shielding</td>
-                        </tr>
-                    </tbody>
-                </table>
+                                <td>Welding & Fabrication</td>
+                                <td><strong>High Potential:</strong> Fabrication of steel structures, non-safety-related tanks, cable trays, and busbars</td>
+                            </tr>
+                            <tr>
+                                <td>Technical Support</td>
+                                <td><strong>Very High Potential:</strong> Electrical system installation, water treatment system design and operation, fire protection, and HVAC installation</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div id="read-more-toggle-bop" onclick="toggleReadMore('read-more-details-bop')" style="text-align: center; cursor: pointer; padding: 10px; margin: 15px 0; background-color: #f4f4f4; border: 1px solid #ddd; border-radius: 5px; font-weight: bold; color: #004d99;">
+                        Detailed Analysis of Balance of Plant Components & Requirements (Read More) <span id="read-more-arrow-bop" style="display: inline-block; transition: transform 0.3s ease;">&#9660;</span>
+                    </div>
+
+                    <div id="read-more-details-bop" class="read-more-content">
+                        <h3>3.1. BOP Systems Overview (Reference: 1000 MWe Class Thermal Plant)</h3>
+                        <p>The BOP systems for a nuclear plant mirror the auxiliary systems of a large-scale fossil-fuel thermal power project, such as a 2x(500 MWe or above) facility. These systems are essential for plant functionality but do not handle radioactive materials.</p>
+                        <ul>
+                            <li><strong>Circulating Water System (CWS):</strong> Large pumps and piping for moving cooling water from the water source (or cooling towers) to the condenser. Requires large-scale civil structures and deep foundations for pump houses.</li>
+                            <li><strong>Fire Protection, Detection &amp; Alarm System:</strong> Includes pumps, piping, valves, and control panels required for plant safety.</li>
+                            <li><strong>Water Treatment Plant (WTP):</strong> Systems for treating raw water for use as boiler feed/make-up water (demineralization, reverse osmosis).</li>
+                            <li><strong>Fuel Oil Handling System:</strong> Storage and transfer system for diesel generators and emergency boilers.</li>
+                            <li><strong>Ash/Coal Handling Systems:</strong> While not required for nuclear, the design criteria for these systems in thermal plants (e.g., 2x500 MW coal plants) provide direct analogous scope for civil and mechanical localization, including vast conveyor structures and storage silos.</li>
+                        </ul>
+
+                        <h3>3.2. Cooling Towers and Auxiliary Buildings (Civil Works Opportunities)</h3>
+                        <p>Cooling towers are large, complex civil structures designed to efficiently dissipate waste heat from the plant.</p>
+                        <ul>
+                            <li><strong>Materials:</strong> Construction predominantly uses mass quantities of <strong>reinforced concrete (25-40 MPa)</strong> and <strong>carbon steel rebar (A615)</strong>. The internal fill material is typically <strong>PVC</strong>.</li>
+                            <li><strong>Local Potential:</strong> Local <strong>cement manufacturers, aggregate suppliers, concrete batching plants, and civil construction firms</strong> have the capability to undertake the <strong>full scope of cooling tower and auxiliary building construction</strong>. Strict adherence to quality assurance (QA/QC) is still mandatory.</li>
+                        </ul>
+
+                        <h3>3.3. Transformers and Switchyards (Electrical & Logistics)</h3>
+                        <p>This infrastructure connects the plant's generator to the national electrical grid.</p>
+                        <ul>
+                            <li><strong>Materials:</strong> <strong>Transformers</strong> utilize <strong>silicon steel cores</strong>, <strong>copper/aluminum windings</strong>, and <strong>carbon steel tanks</strong>. <strong>Switchyard components</strong> require high-conductivity <strong>copper/aluminum busbars</strong> and high-voltage <strong>porcelain or composite insulators</strong>. Structural supports are made of <strong>steel alloys</strong>.</li>
+                            <li><strong>Electrical Wiring/Cabling:</strong> All cabling must meet specialized standards for <strong>fire retardancy, low smoke, halogen-free, and radiation resistance</strong>, utilizing insulation such as <strong>XLPE, PVC, EPR, mica tape, ceramic silicone rubber, or PTFE</strong>.</li>
+                            <li><strong>Local Potential:</strong> Local electrical engineering firms can manage the <strong>installation, testing, and commissioning</strong> of the switchyard. There is also potential for local fabrication of <strong>transformer tanks, cable trays, and busbars</strong> through strategic technological partnerships.</li>
+                        </ul>
+
+                        <h3>3.4. Welding Requirements for Balance of Plant (BOP)</h3>
+                        <p>Welding in the BOP mainly focuses on conventional construction codes, providing a larger scope for certified local contractors.</p>
+                        <ul>
+                            <li><strong>Structural Welding:</strong> All steel structures for buildings, pipe racks, switchyard supports, and water intake structures must comply with <strong>AWS D1.1 (Structural Welding Code)</strong>.</li>
+                            <li><strong>Process Piping:</strong> Non-safety related process lines (e.g., domestic water, fire protection, low-pressure air) require welding to <strong>ASME B31.3 (Process Piping)</strong> standards.</li>
+                            <li><strong>Tank and Vessel Fabrication:</strong> Storage tanks (water, fuel oil) require welding certification to <strong>API 650 (Welded Tanks for Oil Storage)</strong> or equivalent standards.</li>
+                        </ul>
+
+                        <h3>3.5. Material Handling Equipment (BOP Logistics)</h3>
+                        <p>BOP equipment is primarily concerned with general construction, logistics, and major component movement (like transformers) outside the main power block.</p>
+                        <ul>
+                            <li><strong>Mobile Cranes:</strong> Various capacity mobile cranes (25-50 ton) are used extensively for lifting steel structures, WTP components, and general construction materials.</li>
+                            <li><strong>Heavy Haul Transport:</strong> Specialized multi-axle trailers are required to move massive, imported components like **step-up transformers (which can weigh over 200 tons)** from the port to the site.</li>
+                            <li><strong>General Logistics:</strong> Standard forklifts, telehandlers, and boom lifts are required for warehouse, yard, and elevation access throughout the site.</li>
+                        </ul>
+
+                        <h3>3.6. Human Resource Requirements (BOP)</h3>
+                        <p>The BOP requires a broad spectrum of skilled technical staff, many of whom possess experience transferable from other large infrastructure projects.</p>
+                        <ul>
+                            <li><strong>Civil Maintenance Staff:</strong> Personnel skilled in maintaining concrete structures, roads, drainage, and utility tunnels.</li>
+                            <li><strong>Water Chemistry Technicians:</strong> Responsible for operating the Water Treatment Plant (WTP), including monitoring water purity, chemical dosing, and managing waste streams.</li>
+                            <li><strong>Logistics and Warehouse Managers:</strong> Essential for managing the enormous inventory of spare parts and consumables required for a 60-year plant life.</li>
+                            <li><strong>Security and Fire Safety Personnel:</strong> On-site teams trained in plant-specific security protocols and emergency response, including the operation of the dedicated Fire Protection System.</li>
+                        </ul>
+
+                        <h4>Table 3: Balance of Plant Components and Materials Overview</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Component</th>
+                                    <th>Primary Materials</th>
+                                    <th>Key Properties</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cooling Towers</td>
+                                    <td>Reinforced concrete, Carbon steel rebar, PVC</td>
+                                    <td>Structural integrity, heat dissipation, durability</td>
+                                </tr>
+                                <tr>
+                                    <td>Transformers &amp; Switchyards</td>
+                                    <td>Silicon steel, Copper/Aluminum, Carbon steel, Porcelain/Composite insulators, Steel alloys</td>
+                                    <td>Electrical efficiency, structural support</td>
+                                </tr>
+                            <tr>
+                                <td>Electrical Wiring/Cabling</td>
+                                <td>Copper/Aluminum, XLPE, PVC, EPR, Mica tape, Glass fiber, Ceramic silicone rubber, PTFE</td>
+                                <td>Electrical conductivity, insulation, fire retardancy, low smoke/halogen-free</td>
+                            </tr>
+                            <tr>
+                                <td>Water Treatment Plants</td>
+                                <td>Stainless steel, FRP, Specialized polymers</td>
+                                <td>Corrosion resistance, chemical compatibility, filtration</td>
+                            </tr>
+                            <tr>
+                                <td>Circulating Water System (CWS)</td>
+                                <td>Large-diameter Carbon Steel, Concrete pipe, FRP, High-volume pumps</td>
+                                <td>High flow rate, corrosion resistance, reliability</td>
+                            </tr>
+                            <tr>
+                                <td>Radiation Monitoring Systems</td>
+                                <td>Specialized crystals, Steel, Lead</td>
+                                <td>Radiation detection, shielding</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+
 
                 <h2 id="sourcing-recommendations">4. Strategic Sourcing Recommendations</h2>
                 <p>A phased approach maximizes local content while ensuring nuclear safety and quality.</p>
@@ -451,13 +833,13 @@
                         <ul>
                             <li><strong>Joint Ventures:</strong> Establish JVs between local firms and international contractors for conventional plant aspects.</li>
                             <li><strong>Maximize Civil Works:</strong> Capitalize on civil works (roads, drainage, buildings, foundations), offering 40-50% localizability with strict quality control.</li>
-                            <li><strong>Conventional M&E:</strong> Target localization of standard mechanical (pipe supports, HVAC) and electrical (cabling, lighting) components, aiming for 20-30% local content.</li>
+                            <li><strong>Conventional M&amp;E:</strong> Target localization of standard mechanical (pipe supports, HVAC) and electrical (cabling, lighting) components, aiming for 20-30% local content.</li>
                         </ul>
                     </li>
                     <li><strong>Phase 3: Operations &amp; Long-Term Sustainment</strong>
                         <ul>
                             <li><strong>Local Spare Parts:</strong> Develop manufacturing capabilities for non-nuclear spare parts.</li>
-                            <li><strong>Maintenance JVs:</strong> Form JVs with OEMs for O&M services to gain hands-on experience.</li>
+                            <li><strong>Maintenance JVs:</strong> Form JVs with OEMs for O&amp;M services to gain hands-on experience.</li>
                             <li><strong>Decommissioning Expertise:</strong> Begin developing local expertise for future decommissioning phases.</li>
                         </ul>
                     </li>
@@ -502,7 +884,7 @@
                 <h3>Conclusion</h3>
                 <p>Building a nuclear power plant demands unparalleled safety and excellence. While the nuclear island requires specialized international expertise, the turbine island and balance of plant offer significant local opportunities. Strategic partnerships, human capital investment, and progressive localization will integrate Kenya into the nuclear energy world, fostering high-tech industries and skilled labor. Detailed material specifications and rigorous quality control are paramount for long-term safety and reliability.</p>
 
-                <p class="citation"><strong>Source:</strong> Adapted from IAEA Local Content Guidelines for New Nuclear Countries</p>
+                <p class="citation"><strong>Source:</strong> Adapted from IAEA Local Content Guidelines for New Nuclear Countries, and Technical Design Criteria for Large Thermal Power Projects (2x500 MWe class).</p>
             </div> <aside class="static-toc-sidebar">
                 <div class="static-toc-content">
                     <h2>On This Page</h2>
@@ -532,7 +914,18 @@
 
     <script src="script.js"></script>
     <script>
-        // Ensure this is only on pages where the sidebar TOC is present
+        // REUSABLE FUNCTION TO TOGGLE ANY READ MORE DROPDOWN
+        function toggleReadMore(contentId) {
+            const content = document.getElementById(contentId);
+            // The toggle ID is derived from the content ID
+            const toggleId = contentId.replace('-details', '-toggle'); 
+            const toggle = document.getElementById(toggleId);
+            
+            content.classList.toggle('open');
+            toggle.classList.toggle('open');
+        }
+
+        // Existing DOMContentLoaded listener
         document.addEventListener('DOMContentLoaded', () => {
             const openGoogleFormSidebarBtn = document.getElementById('openGoogleFormSidebar');
             if (openGoogleFormSidebarBtn) {
