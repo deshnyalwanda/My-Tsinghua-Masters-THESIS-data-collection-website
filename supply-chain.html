@@ -968,8 +968,35 @@ const bopContent = document.getElementById('read-more-details-bop')?.innerHTML |
 // Track which section is currently open in the modal
 let currentModalSection = null;
 
+// Function to update URL with modal state
+function updateUrlForModal(section = null) {
+    if (section) {
+        // Add modal state to URL
+        const url = new URL(window.location);
+        url.hash = `modal=${section}`;
+        window.history.pushState({ modal: section }, '', url);
+    } else {
+        // Remove modal state from URL
+        if (window.location.hash.includes('modal=')) {
+            window.history.back();
+        }
+    }
+}
+
+// Function to check URL for modal state on page load
+function checkUrlForModal() {
+    const hash = window.location.hash;
+    if (hash.includes('modal=')) {
+        const section = hash.split('modal=')[1];
+        if (['nuclear', 'turbine', 'bop'].includes(section)) {
+            // Open modal with section from URL
+            openReadMoreModal(section, false); // false = don't update URL (already in URL)
+        }
+    }
+}
+
 // Function to open modal with specific content
-function openReadMoreModal(section) {
+function openReadMoreModal(section, updateUrl = true) {
     let content = '';
     let title = '';
     
@@ -999,6 +1026,11 @@ function openReadMoreModal(section) {
     readMoreModal.classList.add('active');
     document.body.style.overflow = 'hidden';
     
+    // Update URL if requested
+    if (updateUrl) {
+        updateUrlForModal(section);
+    }
+    
     // FIX 1: Reset scroll position to top
     setTimeout(() => {
         modalBody.scrollTop = 0;
@@ -1007,13 +1039,18 @@ function openReadMoreModal(section) {
 }
 
 // Function to close modal and reset arrows
-function closeReadMoreModal() {
+function closeReadMoreModal(updateUrl = true) {
     // Close modal
     readMoreModal.classList.remove('active');
     document.body.style.overflow = '';
     
     // FIX 2: Reset all arrow rotations
     resetAllArrows();
+    
+    // Update URL if requested
+    if (updateUrl && currentModalSection) {
+        updateUrlForModal(null);
+    }
     
     // Clear current section
     currentModalSection = null;
@@ -1043,19 +1080,30 @@ function resetAllArrows() {
 }
 
 // Close modal when clicking the X button
-modalCloseBtn.addEventListener('click', closeReadMoreModal);
+modalCloseBtn.addEventListener('click', () => closeReadMoreModal(true));
 
 // Close modal when clicking outside the modal content
 readMoreModal.addEventListener('click', function(e) {
     if (e.target === readMoreModal) {
-        closeReadMoreModal();
+        closeReadMoreModal(true);
     }
+});
+
+// Handle browser back button
+window.addEventListener('popstate', function(event) {
+    // If modal is open and user presses back, close the modal
+    if (readMoreModal.classList.contains('active')) {
+        closeReadMoreModal(false); // false = don't update URL (already handled by popstate)
+    }
+    
+    // Check if we should open a modal based on new URL state
+    checkUrlForModal();
 });
 
 // Close modal with Escape key
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && readMoreModal.classList.contains('active')) {
-        closeReadMoreModal();
+        closeReadMoreModal(true);
     }
 });
 
@@ -1069,17 +1117,17 @@ function toggleReadMore(contentId) {
     if (window.innerWidth <= 768) {
         // MOBILE: Check if we're opening or closing the same section
         if (readMoreModal.classList.contains('active') && currentModalSection === section) {
-            // Closing current modal
-            closeReadMoreModal();
+            // Closing current modal - use back button simulation
+            closeReadMoreModal(true);
         } else {
             // Opening modal (new section or different section)
             
             // First close any open modal
             if (readMoreModal.classList.contains('active')) {
-                closeReadMoreModal();
+                closeReadMoreModal(true);
                 // Small delay to ensure modal is closed before opening new one
                 setTimeout(() => {
-                    openReadMoreModal(section);
+                    openReadMoreModal(section, true);
                     // Set arrow for this section
                     const toggle = document.getElementById(`read-more-toggle-${section}`);
                     if (toggle) {
@@ -1088,7 +1136,7 @@ function toggleReadMore(contentId) {
                 }, 50);
             } else {
                 // Opening fresh modal
-                openReadMoreModal(section);
+                openReadMoreModal(section, true);
                 // Set arrow for this section
                 const toggle = document.getElementById(`read-more-toggle-${section}`);
                 if (toggle) {
@@ -1111,6 +1159,9 @@ function toggleReadMore(contentId) {
 
 // Update existing click handlers to use the smart toggle function
 document.addEventListener('DOMContentLoaded', function() {
+    // Check URL for modal state on page load
+    checkUrlForModal();
+    
     // Get all read more toggles
     const sections = ['nuclear', 'turbine', 'bop'];
     
@@ -1139,7 +1190,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth > 768) {
             // Close modal if screen becomes desktop size
             if (readMoreModal.classList.contains('active')) {
-                closeReadMoreModal();
+                closeReadMoreModal(true);
             }
             // Reset all arrows on desktop
             resetAllArrows();
@@ -1164,6 +1215,29 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 });
+
+// Prevent scrolling when modal is open (improved version)
+const originalBodyOverflow = document.body.style.overflow;
+const originalHtmlOverflow = document.documentElement.style.overflow;
+
+// Observe modal open/close to manage body scroll
+const modalObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'class') {
+            if (readMoreModal.classList.contains('active')) {
+                // Modal opened - prevent background scrolling
+                document.documentElement.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden';
+            } else {
+                // Modal closed - restore scrolling
+                document.documentElement.style.overflow = '';
+                document.body.style.overflow = '';
+            }
+        }
+    });
+});
+
+modalObserver.observe(readMoreModal, { attributes: true });
 </script>
 </body>
 </html>
