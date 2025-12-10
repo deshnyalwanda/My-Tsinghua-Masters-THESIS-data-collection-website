@@ -22,6 +22,7 @@ body {
     font-size: 1rem; 
 }
 
+/* UPDATED CONTAINER STYLES FOR SMALL DEVICES */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -194,6 +195,8 @@ body {
     max-width: 700px;
     margin: 0 auto;
     color: #333;
+    /* UPDATED: Add width constraints for small devices */
+    width: 100%;
 }
 
 .hero-section h1 {
@@ -885,6 +888,30 @@ table tr:hover {
         padding: 20px;
     }
 
+    /* NEW: Make container width match hero inner container on mobile */
+    .content-section .container,
+    .content-with-sidebar {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    /* NEW: Center and constrain main content on mobile */
+    .main-content {
+        width: 90%;
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    
+    /* NEW: Adjust tables for mobile container */
+    .main-content table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
     /* Ensure header and hero content match the container width */
     .main-header .container,
     .hero-section .container {
@@ -992,6 +1019,23 @@ table tr:hover {
 
     .hero-section {
         padding: 30px 0;
+    }
+
+    /* NEW: Adjust main content width for smallest screens */
+    .main-content {
+        width: 95%;
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    
+    /* NEW: Further adjustments for content containers */
+    .content-section .container,
+    .content-with-sidebar {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     /* Further adjustments for smallest screens */
@@ -1109,4 +1153,45 @@ table tr:hover {
 .static-toc-sidebar ul li a.active {
     font-weight: 700;
     background-color: rgba(230, 81, 0, 0.1);
+}
+
+/* NEW: Additional mobile-specific adjustments for consistent container sizing */
+@media (max-width: 768px) {
+    /* Ensure all content sections have consistent width */
+    .content-section .container {
+        display: flex;
+        justify-content: center;
+    }
+    
+    /* Center all content in the main area */
+    .main-content > * {
+        width: 100%;
+    }
+    
+    /* Make sure images in content don't overflow */
+    .main-content img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Adjust table overflow for mobile */
+    .main-content table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* NEW: Apply the same container logic to supply-chain.html content */
+.supply-chain-content .main-content {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+@media (max-width: 480px) {
+    .supply-chain-content .main-content {
+        width: 95%;
+    }
 }
