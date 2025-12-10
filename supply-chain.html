@@ -938,5 +938,232 @@
             }
         });
     </script>
+    <!-- Add this just before the closing </body> tag in supply-chain.html -->
+
+<!-- Read More Modal/Popup Window - MOBILE ONLY -->
+<div id="read-more-modal" class="read-more-modal">
+    <div class="modal-content-container">
+        <div class="modal-header">
+            <h2 class="modal-title" id="modal-title">Detailed Analysis</h2>
+            <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <!-- Content will be inserted here by JavaScript -->
+        </div>
+    </div>
+</div>
+
+<script>
+// MOBILE-ONLY READ MORE MODAL FUNCTIONALITY
+const readMoreModal = document.getElementById('read-more-modal');
+const modalCloseBtn = document.getElementById('modal-close-btn');
+const modalBody = document.getElementById('modal-body');
+const modalTitle = document.getElementById('modal-title');
+
+// Store original dropdown content for each section
+const nuclearContent = document.getElementById('read-more-details-nuclear')?.innerHTML || '';
+const turbineContent = document.getElementById('read-more-details-turbine')?.innerHTML || '';
+const bopContent = document.getElementById('read-more-details-bop')?.innerHTML || '';
+
+// Track which section is currently open in the modal
+let currentModalSection = null;
+
+// Function to open modal with specific content
+function openReadMoreModal(section) {
+    let content = '';
+    let title = '';
+    
+    switch(section) {
+        case 'nuclear':
+            content = nuclearContent;
+            title = 'Detailed Analysis: Nuclear Island Components & Requirements';
+            break;
+        case 'turbine':
+            content = turbineContent;
+            title = 'Detailed Analysis: Turbine Island Components & Requirements';
+            break;
+        case 'bop':
+            content = bopContent;
+            title = 'Detailed Analysis: Balance of Plant Components & Requirements';
+            break;
+    }
+    
+    // Set modal content
+    modalTitle.textContent = title;
+    modalBody.innerHTML = content;
+    
+    // Track current section
+    currentModalSection = section;
+    
+    // Show modal
+    readMoreModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // FIX 1: Reset scroll position to top
+    setTimeout(() => {
+        modalBody.scrollTop = 0;
+        modalBody.parentElement.scrollTop = 0;
+    }, 10);
+}
+
+// Function to close modal and reset arrows
+function closeReadMoreModal() {
+    // Close modal
+    readMoreModal.classList.remove('active');
+    document.body.style.overflow = '';
+    
+    // FIX 2: Reset all arrow rotations
+    resetAllArrows();
+    
+    // Clear current section
+    currentModalSection = null;
+    
+    // Also close any desktop dropdowns that might be open
+    if (window.innerWidth > 768) {
+        ['nuclear', 'turbine', 'bop'].forEach(section => {
+            const content = document.getElementById(`read-more-details-${section}`);
+            const toggle = document.getElementById(`read-more-toggle-${section}`);
+            if (content && toggle) {
+                content.classList.remove('open');
+                toggle.classList.remove('open');
+            }
+        });
+    }
+}
+
+// Helper function to reset all arrows to down position
+function resetAllArrows() {
+    const arrows = ['nuclear', 'turbine', 'bop'];
+    arrows.forEach(section => {
+        const toggle = document.getElementById(`read-more-toggle-${section}`);
+        if (toggle) {
+            toggle.classList.remove('open');
+        }
+    });
+}
+
+// Close modal when clicking the X button
+modalCloseBtn.addEventListener('click', closeReadMoreModal);
+
+// Close modal when clicking outside the modal content
+readMoreModal.addEventListener('click', function(e) {
+    if (e.target === readMoreModal) {
+        closeReadMoreModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && readMoreModal.classList.contains('active')) {
+        closeReadMoreModal();
+    }
+});
+
+// UPDATED toggleReadMore function - checks if mobile
+function toggleReadMore(contentId) {
+    // Extract section name from contentId
+    const section = contentId.includes('nuclear') ? 'nuclear' : 
+                   contentId.includes('turbine') ? 'turbine' : 'bop';
+    
+    // Check if we're on mobile (screen width <= 768px)
+    if (window.innerWidth <= 768) {
+        // MOBILE: Check if we're opening or closing the same section
+        if (readMoreModal.classList.contains('active') && currentModalSection === section) {
+            // Closing current modal
+            closeReadMoreModal();
+        } else {
+            // Opening modal (new section or different section)
+            
+            // First close any open modal
+            if (readMoreModal.classList.contains('active')) {
+                closeReadMoreModal();
+                // Small delay to ensure modal is closed before opening new one
+                setTimeout(() => {
+                    openReadMoreModal(section);
+                    // Set arrow for this section
+                    const toggle = document.getElementById(`read-more-toggle-${section}`);
+                    if (toggle) {
+                        toggle.classList.add('open');
+                    }
+                }, 50);
+            } else {
+                // Opening fresh modal
+                openReadMoreModal(section);
+                // Set arrow for this section
+                const toggle = document.getElementById(`read-more-toggle-${section}`);
+                if (toggle) {
+                    toggle.classList.add('open');
+                }
+            }
+        }
+    } else {
+        // DESKTOP (768px+): Keep existing dropdown behavior
+        const content = document.getElementById(contentId);
+        const toggleId = contentId.replace('-details', '-toggle');
+        const toggle = document.getElementById(toggleId);
+        
+        if (content && toggle) {
+            content.classList.toggle('open');
+            toggle.classList.toggle('open');
+        }
+    }
+}
+
+// Update existing click handlers to use the smart toggle function
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all read more toggles
+    const sections = ['nuclear', 'turbine', 'bop'];
+    
+    sections.forEach(section => {
+        const toggle = document.getElementById(`read-more-toggle-${section}`);
+        if (toggle) {
+            // Remove the inline onclick and use our smart toggle
+            toggle.removeAttribute('onclick');
+            toggle.addEventListener('click', function() {
+                const contentId = `read-more-details-${section}`;
+                toggleReadMore(contentId);
+            });
+        }
+    });
+    
+    // Keep existing Google Form button functionality
+    const openGoogleFormSidebarBtn = document.getElementById('openGoogleFormSidebar');
+    if (openGoogleFormSidebarBtn) {
+        openGoogleFormSidebarBtn.addEventListener('click', () => {
+            window.open('https://docs.google.com/forms/d/e/1FAIpQLSf5ipXZmeUTUHt-QQRhgRwPnZe-1EOgLeMNb2p2x0m8yVhKUw/viewform?usp=dialog', '_blank');
+        });
+    }
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            // Close modal if screen becomes desktop size
+            if (readMoreModal.classList.contains('active')) {
+                closeReadMoreModal();
+            }
+            // Reset all arrows on desktop
+            resetAllArrows();
+        }
+    });
+    
+    // Also fix arrow animations in CSS (add this to your style.css or inline style)
+    const style = document.createElement('style');
+    style.textContent = `
+        #read-more-toggle-nuclear.open #read-more-arrow-nuclear,
+        #read-more-toggle-turbine.open #read-more-arrow-turbine,
+        #read-more-toggle-bop.open #read-more-arrow-bop {
+            transform: rotate(180deg);
+        }
+        
+        /* Reset arrows when not open */
+        #read-more-arrow-nuclear,
+        #read-more-arrow-turbine,
+        #read-more-arrow-bop {
+            transition: transform 0.3s ease;
+        }
+    `;
+    document.head.appendChild(style);
+});
+</script>
 </body>
 </html>
