@@ -5,18 +5,28 @@
     box-sizing: border-box;
 }
 
+/* 1. IMPLEMENT RESPONSIVE ROOT FONT SIZE (New Addition) */
+html {
+    /* Base font size: 0.6rem (9.6px) + 0.4vw (scaling factor). 
+       This makes the overall scale smaller and responsive. */
+    font-size: calc(0.6rem + 0.4vw); 
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4;
     scroll-behavior: smooth;
+    /* 2. Set body text to 1x the responsive root size */
+    font-size: 1rem; 
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    /* Changed padding to 0 1.25rem for a proportional, slightly larger base margin */
+    padding: 0 1.25rem; 
 }
 
 /* Header */
@@ -42,7 +52,8 @@ body {
     text-decoration: none;
     color: #fff;
     font-weight: 700;
-    font-size: 1.5em;
+    /* Now scales smaller relative to new root font size */
+    font-size: 1.5em; 
 }
 
 .logo img {
@@ -187,7 +198,8 @@ body {
 
 .hero-section h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.95em;
+    /* Scales smaller */
+    font-size: 1.95em; 
     margin-bottom: 15px;
     line-height: 1.2;
     text-shadow: none;
@@ -195,7 +207,8 @@ body {
 }
 
 .hero-section .tagline-study {
-    font-size: 1.1em;
+    /* Scales smaller */
+    font-size: 1.1em; 
     margin-bottom: 20px;
     font-weight: 300;
     text-shadow: none;
@@ -204,7 +217,8 @@ body {
 
 .hero-section .study-purpose,
 .hero-section .collaboration-info {
-    font-size: 1em;
+    /* Scales smaller */
+    font-size: 1em; 
     margin-bottom: 15px;
     max-width: 700px;
     margin-left: auto;
@@ -268,7 +282,8 @@ body {
 
 .btn.large-btn {
     padding: 12px 25px;
-    font-size: 1.1em;
+    /* Scales smaller */
+    font-size: 1.1em; 
 }
 
 .btn-action-main {
@@ -316,7 +331,8 @@ body {
 }
 
 .content-section h2 {
-    font-size: 2.5em;
+    /* Scales smaller */
+    font-size: 2.5em; 
     margin-top: 60px;
 }
 
@@ -325,7 +341,8 @@ body {
     color: #3f51b5;
     margin-top: 40px;
     margin-bottom: 20px;
-    font-size: 1.8em;
+    /* Scales smaller */
+    font-size: 1.8em; 
 }
 
 .content-section h4 {
@@ -333,11 +350,13 @@ body {
     color: #5c6bc0;
     margin-top: 35px;
     margin-bottom: 15px;
-    font-size: 1.4em;
+    /* Scales smaller */
+    font-size: 1.4em; 
 }
 
 .content-section p {
-    margin-bottom: 1.2em;
+    /* Now scales smaller relative to new root font size */
+    margin-bottom: 1.2em; 
     line-height: 1.7;
     text-align: justify;
 }
@@ -345,7 +364,8 @@ body {
 .content-section ul {
     list-style: disc;
     margin-left: 25px;
-    margin-bottom: 2em;
+    /* Now scales smaller relative to new root font size */
+    margin-bottom: 2em; 
 }
 
 .content-section ul li {
@@ -386,7 +406,8 @@ body {
 
 .image-caption {
     font-style: italic;
-    font-size: 0.9em;
+    /* Scales smaller */
+    font-size: 0.9em; 
     color: #555;
     margin-top: 15px;
 }
@@ -396,7 +417,8 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 40px 0;
-    font-size: 0.9em;
+    /* Scales smaller */
+    font-size: 0.9em; 
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
@@ -424,7 +446,8 @@ table tr:hover {
 
 .citation {
     font-style: italic;
-    font-size: 0.9em;
+    /* Scales smaller */
+    font-size: 0.9em; 
     text-align: right;
     color: #777;
     margin-top: 50px;
@@ -443,7 +466,8 @@ table tr:hover {
 }
 
 .contact-form-section p {
-    font-size: 1.1em;
+    /* Scales smaller */
+    font-size: 1.1em; 
     margin-bottom: 30px;
     color: #555;
 }
@@ -457,7 +481,8 @@ table tr:hover {
 }
 
 .social-links p {
-    font-size: 1em;
+    /* Scales smaller */
+    font-size: 1em; 
     margin-bottom: 20px;
 }
 
@@ -481,7 +506,8 @@ table tr:hover {
     background-color: #263238;
     color: #e0e0e0;
     padding: 30px 0;
-    font-size: 0.9em;
+    /* Scales smaller */
+    font-size: 0.9em; 
 }
 
 .main-footer .container {
@@ -539,7 +565,8 @@ table tr:hover {
 
 .static-toc-sidebar h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1em;
+    /* Scales smaller */
+    font-size: 1em; 
     color: #1a237e;
     margin-top: 0;
     margin-bottom: 10px;
@@ -563,7 +590,8 @@ table tr:hover {
     transition: color 0.3s ease, font-weight 0.3s ease;
     padding: 2px 0;
     display: block;
-    font-size: 0.85em;
+    /* Scales smaller */
+    font-size: 0.85em; 
 }
 
 .static-toc-sidebar ul li a:hover {
@@ -606,7 +634,8 @@ table tr:hover {
 
 .beaming-cta h3 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1em;
+    /* Scales smaller */
+    font-size: 1em; 
     color: #333;
     margin-bottom: 2px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
@@ -614,7 +643,8 @@ table tr:hover {
 }
 
 .beaming-cta p {
-    font-size: 0.75em;
+    /* Scales smaller */
+    font-size: 0.75em; 
     color: #555;
     margin-bottom: 7px;
     line-height: 1.2;
@@ -625,7 +655,8 @@ table tr:hover {
     background-color: #e65100;
     color: #fff;
     padding: 6px 12px;
-    font-size: 0.8em;
+    /* Scales smaller */
+    font-size: 0.8em; 
     border-radius: 50px;
     font-weight: bold;
     text-transform: uppercase;
@@ -693,20 +724,23 @@ table tr:hover {
     }
 
     .beaming-cta h3 {
-        font-size: 0.9em;
+        /* Scales smaller */
+        font-size: 0.9em; 
         margin-bottom: 5px;
         line-height: 1.2;
     }
 
     .beaming-cta p {
-        font-size: 0.7em;
+        /* Scales smaller */
+        font-size: 0.7em; 
         margin-bottom: 8px;
         line-height: 1.2;
     }
 
     .btn-beaming-cta {
         padding: 6px 10px;
-        font-size: 0.7em;
+        /* Scales smaller */
+        font-size: 0.7em; 
         width: 100%;
     }
 
@@ -733,11 +767,13 @@ table tr:hover {
     }
 
     .beaming-cta h3 {
-        font-size: 0.8em;
+        /* Scales smaller */
+        font-size: 0.8em; 
     }
 
     .beaming-cta p {
-        font-size: 0.6em;
+        /* Scales smaller */
+        font-size: 0.6em; 
     }
 }
 
@@ -785,16 +821,19 @@ table tr:hover {
     }
 
     .hero-section h1 {
-        font-size: 1.43em;
+        /* Scales smaller */
+        font-size: 1.43em; 
     }
 
     .hero-section .tagline-study {
-        font-size: 0.93em;
+        /* Scales smaller */
+        font-size: 0.93em; 
     }
 
     .hero-section .study-purpose,
     .hero-section .collaboration-info {
-        font-size: 0.9em;
+        /* Scales smaller */
+        font-size: 0.9em; 
     }
 
     .section-grid {
@@ -832,7 +871,8 @@ table tr:hover {
 
     /* New styles for full-width header and hero on mobile */
     .main-header {
-        padding: 15px 20px; /* Match container padding */
+        /* Added for consistent side space */
+        padding: 15px 1.25rem; 
     }
 
     .hero-media-placeholder {
@@ -845,11 +885,12 @@ table tr:hover {
         padding: 20px;
     }
 
-    /* Make header and hero content match the container width */
+    /* Ensure header and hero content match the container width */
     .main-header .container,
     .hero-section .container {
-        padding-left: 20px;
-        padding-right: 20px;
+        /* Removed fixed px padding to allow responsive container padding to take over */
+        padding-left: 0;
+        padding-right: 0;
         width: 100%;
         max-width: 100%;
     }
@@ -894,27 +935,37 @@ table tr:hover {
 }
 
 @media (max-width: 480px) {
+    /* Updated for consistent mobile padding */
+    .container {
+        padding: 0 1rem; 
+    }
+    
     .hero-section h1 {
-        font-size: 1.04em;
+        /* Scales smaller */
+        font-size: 1.04em; 
     }
     
     .hero-section .tagline-study {
-        font-size: 0.846em;
+        /* Scales smaller */
+        font-size: 0.846em; 
     }
     
     .hero-section .study-purpose,
     .hero-section .collaboration-info {
-        font-size: 0.85em;
+        /* Scales smaller */
+        font-size: 0.85em; 
     }
     
     .btn {
         padding: 8px 15px;
-        font-size: 0.85em;
+        /* Scales smaller */
+        font-size: 0.85em; 
     }
     
     .btn.large-btn {
         padding: 10px 20px;
-        font-size: 0.9em;
+        /* Scales smaller */
+        font-size: 0.9em; 
     }
     
     .hero-inner-container {
@@ -923,12 +974,20 @@ table tr:hover {
     
     .btn-action-main {
         padding: 12px 20px;
-        font-size: 1em;
+        /* Scales smaller */
+        font-size: 1em; 
     }
 
     /* Ensure full width for header and hero on smallest screens */
     .main-header .container {
-        padding: 0 15px;
+        /* Padding handled by .main-header rule above */
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .main-header {
+        /* Consistent side space */
+        padding: 15px 1rem; 
     }
 
     .hero-section {
@@ -938,8 +997,8 @@ table tr:hover {
     /* Further adjustments for smallest screens */
     .main-header .container,
     .hero-section .container {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .hero-inner-container {
@@ -947,6 +1006,23 @@ table tr:hover {
     }
 }
 
+/* 3. FONT SCALING LOCK FOR EXTREMES (New Addition) */
+
+/* Lock the root font size on standard mobile screens (Min Size) */
+@media (max-width: 600px) {
+    html {
+        /* Lock at 15px for readability on small devices */
+        font-size: 15px; 
+    }
+}
+
+/* Lock the root font size on very large screens (Max Size) */
+@media (min-width: 1400px) {
+    html {
+        /* Lock at 19px maximum size */
+        font-size: 19px; 
+    }
+}
 /* Navigation - Add Explore Opportunities */
 .main-nav ul {
     gap: 15px;
@@ -988,7 +1064,8 @@ table tr:hover {
 /* Update the static TOC styling */
 .static-toc-sidebar h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.1em;
+    /* Scales smaller */
+    font-size: 1.1em; 
     color: #1a237e;
     margin-top: 0;
     margin-bottom: 15px;
@@ -1015,7 +1092,8 @@ table tr:hover {
     transition: all 0.3s ease;
     padding: 4px 0 4px 12px;
     display: block;
-    font-size: 0.9em;
+    /* Scales smaller */
+    font-size: 0.9em; 
     border-left: 3px solid transparent;
     margin-left: -12px;
 }
