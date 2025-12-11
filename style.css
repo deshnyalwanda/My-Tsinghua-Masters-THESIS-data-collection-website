@@ -377,10 +377,6 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.section-grid.reverse-order {
-    /* No change needed */
-}
-
 .image-caption {
     font-style: italic;
     /* Scales smaller */
