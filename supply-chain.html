@@ -72,8 +72,8 @@
                         <li>Balance of Plant (BOP)</li>
                     </ul>
                     
-                    <div class="nuclear-island-image" style="height: 800px; text-align: center;">
-                        <img src="nuclear island.jpg" alt="Schematic of Nuclear Island, Turbine Island and Balance of Plant" style="width:auto; height:80%;">
+                    <div class="nuclear-island-image" style="height: 450px; text-align: center;">
+                        <img src="nuclear island.jpg" alt="Schematic of Nuclear Island, Turbine Island and Balance of Plant" style="width:auto; height:400px;">
                         <p class="image-caption">
                             Simplified schematic showing Nuclear island, Turbine island and Balance of Plant island
                             <span class="source">Source: 
@@ -87,7 +87,7 @@
                     <div class="table-of-contents-inline">
                         <h2>Table of Contents</h2>
                         <ul>
-                            <li><a href="#nuclear-island">1. Nuclear Island: The Heart of the Reactor</a></li>
+                            <li><a href="#nuclear-island">1. Nuclear Island</a></li>
                             <li><a href="#turbine-island">2. Turbine Island: Power Generation</a></li>
                             <li><a href="#bop">3. Balance of Plant (BOP): Highest Local Content Potential</a></li>
                             <li><a href="#sourcing-recommendations">4. Summary of Local Potential by Industry</a></li>
@@ -95,7 +95,7 @@
                         </ul>
                     </div>
 
-                    <h2 id="nuclear-island">1. Nuclear Island: The Heart of the Reactor (Highly Specialized – Requires International Partnerships)</h2>
+                    <h2 id="nuclear-island">1. Nuclear Island: High Safety Standards (Highly Specialized – Requires International Partnerships)</h2>
                     <p>The nuclear island contains the reactor vessel and primary cooling system. It needs extreme precision and quality control. International partnerships are crucial for the entire section with very minimal or no local participation.</p>
                     
                     <h4>Summary of Kenya's potential industrial capacity in Nuclear Island</h4>
@@ -954,49 +954,35 @@
 </div>
 
 <script>
-// MOBILE-ONLY READ MORE MODAL FUNCTIONALITY
+// GLOBAL VARIABLES
 const readMoreModal = document.getElementById('read-more-modal');
 const modalCloseBtn = document.getElementById('modal-close-btn');
 const modalBody = document.getElementById('modal-body');
 const modalTitle = document.getElementById('modal-title');
+let currentModalSection = null;
 
 // Store original dropdown content for each section
 const nuclearContent = document.getElementById('read-more-details-nuclear')?.innerHTML || '';
 const turbineContent = document.getElementById('read-more-details-turbine')?.innerHTML || '';
 const bopContent = document.getElementById('read-more-details-bop')?.innerHTML || '';
 
-// Track which section is currently open in the modal
-let currentModalSection = null;
-
-// Function to update URL with modal state
-function updateUrlForModal(section = null) {
-    if (section) {
-        // Add modal state to URL
-        const url = new URL(window.location);
-        url.hash = `modal=${section}`;
-        window.history.pushState({ modal: section }, '', url);
+// MAIN TOGGLE FUNCTION - Works for all screen sizes
+function toggleReadMore(contentId) {
+    // Extract section name from contentId
+    const section = contentId.includes('nuclear') ? 'nuclear' : 
+                   contentId.includes('turbine') ? 'turbine' : 'bop';
+    
+    // If modal is already open for this section, close it
+    if (readMoreModal.classList.contains('active') && currentModalSection === section) {
+        closeReadMoreModal();
     } else {
-        // Remove modal state from URL
-        if (window.location.hash.includes('modal=')) {
-            window.history.back();
-        }
-    }
-}
-
-// Function to check URL for modal state on page load
-function checkUrlForModal() {
-    const hash = window.location.hash;
-    if (hash.includes('modal=')) {
-        const section = hash.split('modal=')[1];
-        if (['nuclear', 'turbine', 'bop'].includes(section)) {
-            // Open modal with section from URL
-            openReadMoreModal(section, false); // false = don't update URL (already in URL)
-        }
+        // Otherwise, open the modal with this section's content
+        openReadMoreModal(section);
     }
 }
 
 // Function to open modal with specific content
-function openReadMoreModal(section, updateUrl = true) {
+function openReadMoreModal(section) {
     let content = '';
     let title = '';
     
@@ -1025,13 +1011,15 @@ function openReadMoreModal(section, updateUrl = true) {
     // Show modal
     readMoreModal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
     
-    // Update URL if requested
-    if (updateUrl) {
-        updateUrlForModal(section);
+    // Set arrow for this section to "open" state
+    const toggle = document.getElementById(`read-more-toggle-${section}`);
+    if (toggle) {
+        toggle.classList.add('open');
     }
     
-    // FIX 1: Reset scroll position to top
+    // Reset scroll position to top
     setTimeout(() => {
         modalBody.scrollTop = 0;
         modalBody.parentElement.scrollTop = 0;
@@ -1039,33 +1027,17 @@ function openReadMoreModal(section, updateUrl = true) {
 }
 
 // Function to close modal and reset arrows
-function closeReadMoreModal(updateUrl = true) {
+function closeReadMoreModal() {
     // Close modal
     readMoreModal.classList.remove('active');
     document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
     
-    // FIX 2: Reset all arrow rotations
+    // Reset all arrow rotations
     resetAllArrows();
-    
-    // Update URL if requested
-    if (updateUrl && currentModalSection) {
-        updateUrlForModal(null);
-    }
     
     // Clear current section
     currentModalSection = null;
-    
-    // Also close any desktop dropdowns that might be open
-    if (window.innerWidth > 768) {
-        ['nuclear', 'turbine', 'bop'].forEach(section => {
-            const content = document.getElementById(`read-more-details-${section}`);
-            const toggle = document.getElementById(`read-more-toggle-${section}`);
-            if (content && toggle) {
-                content.classList.remove('open');
-                toggle.classList.remove('open');
-            }
-        });
-    }
 }
 
 // Helper function to reset all arrows to down position
@@ -1079,96 +1051,32 @@ function resetAllArrows() {
     });
 }
 
-// Close modal when clicking the X button
-modalCloseBtn.addEventListener('click', () => closeReadMoreModal(true));
-
-// Close modal when clicking outside the modal content
-readMoreModal.addEventListener('click', function(e) {
-    if (e.target === readMoreModal) {
-        closeReadMoreModal(true);
-    }
-});
-
-// Handle browser back button
-window.addEventListener('popstate', function(event) {
-    // If modal is open and user presses back, close the modal
-    if (readMoreModal.classList.contains('active')) {
-        closeReadMoreModal(false); // false = don't update URL (already handled by popstate)
-    }
-    
-    // Check if we should open a modal based on new URL state
-    checkUrlForModal();
-});
-
-// Close modal with Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && readMoreModal.classList.contains('active')) {
-        closeReadMoreModal(true);
-    }
-});
-
-// UPDATED toggleReadMore function - checks if mobile
-function toggleReadMore(contentId) {
-    // Extract section name from contentId
-    const section = contentId.includes('nuclear') ? 'nuclear' : 
-                   contentId.includes('turbine') ? 'turbine' : 'bop';
-    
-    // Check if we're on mobile (screen width <= 768px)
-    if (window.innerWidth <= 768) {
-        // MOBILE: Check if we're opening or closing the same section
-        if (readMoreModal.classList.contains('active') && currentModalSection === section) {
-            // Closing current modal - use back button simulation
-            closeReadMoreModal(true);
-        } else {
-            // Opening modal (new section or different section)
-            
-            // First close any open modal
-            if (readMoreModal.classList.contains('active')) {
-                closeReadMoreModal(true);
-                // Small delay to ensure modal is closed before opening new one
-                setTimeout(() => {
-                    openReadMoreModal(section, true);
-                    // Set arrow for this section
-                    const toggle = document.getElementById(`read-more-toggle-${section}`);
-                    if (toggle) {
-                        toggle.classList.add('open');
-                    }
-                }, 50);
-            } else {
-                // Opening fresh modal
-                openReadMoreModal(section, true);
-                // Set arrow for this section
-                const toggle = document.getElementById(`read-more-toggle-${section}`);
-                if (toggle) {
-                    toggle.classList.add('open');
-                }
-            }
-        }
-    } else {
-        // DESKTOP (768px+): Keep existing dropdown behavior
-        const content = document.getElementById(contentId);
-        const toggleId = contentId.replace('-details', '-toggle');
-        const toggle = document.getElementById(toggleId);
-        
-        if (content && toggle) {
-            content.classList.toggle('open');
-            toggle.classList.toggle('open');
-        }
-    }
-}
-
-// Update existing click handlers to use the smart toggle function
+// Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
-    // Check URL for modal state on page load
-    checkUrlForModal();
+    // Close modal when clicking the X button
+    modalCloseBtn.addEventListener('click', closeReadMoreModal);
     
-    // Get all read more toggles
+    // Close modal when clicking outside the modal content
+    readMoreModal.addEventListener('click', function(e) {
+        if (e.target === readMoreModal) {
+            closeReadMoreModal();
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && readMoreModal.classList.contains('active')) {
+            closeReadMoreModal();
+        }
+    });
+    
+    // Setup all read more toggles
     const sections = ['nuclear', 'turbine', 'bop'];
     
     sections.forEach(section => {
         const toggle = document.getElementById(`read-more-toggle-${section}`);
         if (toggle) {
-            // Remove the inline onclick and use our smart toggle
+            // Remove the inline onclick and use our new toggle function
             toggle.removeAttribute('onclick');
             toggle.addEventListener('click', function() {
                 const contentId = `read-more-details-${section}`;
@@ -1185,28 +1093,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Handle window resize
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            // Close modal if screen becomes desktop size
-            if (readMoreModal.classList.contains('active')) {
-                closeReadMoreModal(true);
-            }
-            // Reset all arrows on desktop
-            resetAllArrows();
-        }
-    });
-    
-    // Also fix arrow animations in CSS (add this to your style.css or inline style)
+    // Add inline style to ensure dropdown content is hidden
     const style = document.createElement('style');
     style.textContent = `
+        /* Ensure dropdown content is hidden */
+        .read-more-content {
+            display: none !important;
+        }
+        
+        /* Arrow animation */
         #read-more-toggle-nuclear.open #read-more-arrow-nuclear,
         #read-more-toggle-turbine.open #read-more-arrow-turbine,
         #read-more-toggle-bop.open #read-more-arrow-bop {
             transform: rotate(180deg);
         }
         
-        /* Reset arrows when not open */
+        /* Arrow transition */
         #read-more-arrow-nuclear,
         #read-more-arrow-turbine,
         #read-more-arrow-bop {
@@ -1216,28 +1118,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.head.appendChild(style);
 });
 
-// Prevent scrolling when modal is open (improved version)
-const originalBodyOverflow = document.body.style.overflow;
-const originalHtmlOverflow = document.documentElement.style.overflow;
-
-// Observe modal open/close to manage body scroll
-const modalObserver = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-        if (mutation.attributeName === 'class') {
-            if (readMoreModal.classList.contains('active')) {
-                // Modal opened - prevent background scrolling
-                document.documentElement.style.overflow = 'hidden';
-                document.body.style.overflow = 'hidden';
-            } else {
-                // Modal closed - restore scrolling
-                document.documentElement.style.overflow = '';
-                document.body.style.overflow = '';
-            }
-        }
+// Also hide the dropdown content immediately on page load
+window.addEventListener('load', function() {
+    const dropdowns = document.querySelectorAll('.read-more-content');
+    dropdowns.forEach(dropdown => {
+        dropdown.style.display = 'none';
     });
 });
-
-modalObserver.observe(readMoreModal, { attributes: true });
 </script>
 </body>
 </html>

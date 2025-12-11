@@ -201,9 +201,8 @@ body {
 
 .hero-section h1 {
     font-family: 'Montserrat', sans-serif;
-    /* Scales smaller */
-    font-size: 1.95em; 
-    margin-bottom: 15px;
+    font-size: 1.5em;  /* Reduced from 1.8em */
+    margin-bottom: 12px;
     line-height: 1.2;
     text-shadow: none;
     color: #1a237e;
@@ -315,67 +314,42 @@ body {
     background-color: #1565c0;
 }
 
-/* Content Sections */
-.content-section {
-    padding: 60px 0;
-}
-
-.content-section.light-bg {
-    background-color: #f9f9f9;
-}
-
 .content-section h1,
 .content-section h2 {
     font-family: 'Montserrat', sans-serif;
     color: #1a237e;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     text-align: center;
     font-weight: 700;
 }
 
+.content-section h1 {
+    font-size: 1.8em;  /* About half of 2.2em */
+    margin-top: 30px;
+}
+
 .content-section h2 {
-    /* Scales smaller */
-    font-size: 2.5em; 
-    margin-top: 60px;
+    font-size: 1.4em;  /* About half of 1.8em */
+    margin-top: 30px;
 }
 
 .content-section h3 {
     font-family: 'Montserrat', sans-serif;
     color: #3f51b5;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    /* Scales smaller */
-    font-size: 1.8em; 
+    margin-top: 25px;
+    margin-bottom: 12px;
+    font-size: 1.1em;  /* About half of 1.4em */
+    font-weight: 600;
 }
 
 .content-section h4 {
     font-family: 'Montserrat', sans-serif;
     color: #5c6bc0;
-    margin-top: 35px;
-    margin-bottom: 15px;
-    /* Scales smaller */
-    font-size: 1.4em; 
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1em;    /* About half of 1.2em */
+    font-weight: 600;
 }
-
-.content-section p {
-    /* Now scales smaller relative to new root font size */
-    margin-bottom: 1.2em; 
-    line-height: 1.7;
-    text-align: justify;
-}
-
-.content-section ul {
-    list-style: disc;
-    margin-left: 25px;
-    /* Now scales smaller relative to new root font size */
-    margin-bottom: 2em; 
-}
-
-.content-section ul li {
-    margin-bottom: 0.5em;
-    line-height: 1.6;
-}
-
 /* Section Grid for Text and Media */
 .section-grid {
     display: grid;
@@ -755,7 +729,30 @@ table tr:hover {
             box-shadow: 0 4px 15px rgba(255, 152, 0, 0.6);
         }
     }
+     .content-section h1 {
+        font-size: 1.4em;
+    }
+    
+    .content-section h2 {
+        font-size: 1.2em;
+        margin-top: 25px;
+    }
+    
+    .content-section h3 {
+        font-size: 1.05em;
+        margin-top: 20px;
+    }
+    
+    .content-section h4 {
+        font-size: 0.95em;
+        margin-top: 15px;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.3em; 
+    }
 }
+
 
 @media (max-width: 480px) {
     .static-toc-sidebar {
@@ -777,6 +774,29 @@ table tr:hover {
     .beaming-cta p {
         /* Scales smaller */
         font-size: 0.6em; 
+    }
+     .content-section h1 {
+        font-size: 1.2em;
+        margin-top: 25px;
+    }
+    
+    .content-section h2 {
+        font-size: 1.1em;
+        margin-top: 25px;
+    }
+    
+    .content-section h3 {
+        font-size: 1em;
+        margin-top: 15px;
+    }
+    
+    .content-section h4 {
+        font-size: 0.9em;
+        margin-top: 12px;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.1em; 
     }
 }
 
@@ -1195,9 +1215,9 @@ table tr:hover {
         width: 95%;
     }
 }
-/* Add these to the end of your style.css file */
+/* Update or replace the modal CSS in style.css */
 
-/* READ MORE MODAL/POPUP WINDOW - MOBILE ONLY */
+/* READ MORE MODAL/POPUP WINDOW - FOR ALL SCREENS */
 .read-more-modal {
     display: none;
     position: fixed;
@@ -1226,7 +1246,7 @@ table tr:hover {
 .modal-content-container {
     background-color: white;
     width: 95%;
-    max-width: 900px;
+    max-width: 1200px;
     max-height: 90vh;
     overflow-y: auto;
     border-radius: 10px;
@@ -1296,9 +1316,21 @@ table tr:hover {
     line-height: 1.7;
 }
 
-/* Hide modal on desktop/large screens */
+/* Desktop-specific modal adjustments */
 @media (min-width: 769px) {
-    .read-more-modal {
+    .modal-content-container {
+        max-width: 1100px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    
+    .modal-body {
+        padding: 30px;
+        font-size: 1.1rem;
+    }
+    
+    /* Hide the inline dropdown content on ALL screens */
+    .read-more-content {
         display: none !important;
     }
 }
@@ -1332,18 +1364,6 @@ table tr:hover {
         max-width: 100%;
         height: auto;
     }
-    
-    /* Hide dropdown content on mobile */
-    .read-more-content {
-        display: none !important;
-    }
-    
-    /* Keep the arrow animation for mobile */
-    #read-more-toggle-nuclear.open #read-more-arrow-nuclear,
-    #read-more-toggle-turbine.open #read-more-arrow-turbine,
-    #read-more-toggle-bop.open #read-more-arrow-bop {
-        transform: rotate(180deg);
-    }
 }
 
 @media (max-width: 480px) {
@@ -1368,3 +1388,24 @@ table tr:hover {
         font-size: 1.2em;
     }
 }
+
+/* Hide dropdown content on ALL screens - VERY IMPORTANT */
+.read-more-content {
+    display: none !important;
+}
+
+/* Keep the arrow animation for all screens */
+#read-more-toggle-nuclear.open #read-more-arrow-nuclear,
+#read-more-toggle-turbine.open #read-more-arrow-turbine,
+#read-more-toggle-bop.open #read-more-arrow-bop {
+    transform: rotate(180deg);
+}
+
+/* Remove the old mobile-only rule that was hiding the modal on desktop */
+/* DELETE THIS SECTION if it exists in your CSS:
+@media (min-width: 769px) {
+    .read-more-modal {
+        display: none !important;
+    }
+}
+*/
