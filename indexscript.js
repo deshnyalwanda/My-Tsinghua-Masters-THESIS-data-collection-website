@@ -56,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentImageIndex = 0;
     
     if (heroImages.length > 1) {
+        // NOTE: If using the pure CSS slideshow from previous steps, this JavaScript block
+        // (the setInterval part) is redundant and can be removed, but kept here for now.
         setInterval(() => {
             heroImages.forEach(img => img.classList.remove('active'));
             currentImageIndex = (currentImageIndex + 1) % heroImages.length;
@@ -174,45 +176,35 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'auto';
         }
     });
-    
-    // 8. Mobile-specific adjustments for CTA
-    function adjustForMobile() {
-        const beamingCta = document.querySelector('.beaming-cta');
-        const staticTocSidebar = document.querySelector('.static-toc-sidebar');
-        
-        if (window.innerWidth <= 992) {
-            // Mobile: Hide TOC sidebar completely
-            if (staticTocSidebar) {
-                staticTocSidebar.style.display = 'none';
-            }
-            // Ensure CTA is fixed position on mobile
-            if (beamingCta) {
-                beamingCta.style.position = 'fixed';
-                beamingCta.style.bottom = '20px';
-                beamingCta.style.right = '20px';
-                beamingCta.style.zIndex = '1000';
-                beamingCta.style.display = 'block';
-            }
+
+    // =================================================================
+    // 8. CORRECTED: Beaming CTA visibility control (Replaces old sections 8, 11, 12)
+    // The CTA will appear after scrolling past a threshold. Visibility and width
+    // are now handled purely by the 'visible' class in your CSS.
+    // =================================================================
+    const beamingCtaBtn = document.getElementById('openGoogleFormSidebar');
+    // Adjust this value (in pixels) to determine how far down the user must scroll before the CTA appears.
+    const scrollThreshold = 500; 
+
+    function checkCtaVisibility() {
+        if (!beamingCtaBtn) return; 
+
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > scrollThreshold) {
+            // Show the CTA
+            beamingCtaBtn.classList.add('visible');
         } else {
-            // Desktop: Show TOC with CTA inside
-            if (staticTocSidebar) {
-                staticTocSidebar.style.display = 'block';
-            }
-            // Reset CTA styles for desktop
-            if (beamingCta) {
-                beamingCta.style.position = 'static';
-                beamingCta.style.bottom = '';
-                beamingCta.style.right = '';
-                beamingCta.style.zIndex = '';
-            }
+            // Hide the CTA
+            beamingCtaBtn.classList.remove('visible');
         }
     }
+
+    // Attach the listener and run once on load
+    window.addEventListener('scroll', checkCtaVisibility);
+    checkCtaVisibility(); 
     
-    // Run on load and resize
-    adjustForMobile();
-    window.addEventListener('resize', adjustForMobile);
-    
-    // 9. Mobile navigation close on link click
+    // 9. Mobile navigation close on link click (Re-numbered)
     const navLinks = document.querySelectorAll('.main-nav a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -223,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // 10. Close dropdowns when clicking outside
+    // 10. Close dropdowns when clicking outside (Re-numbered)
     document.addEventListener('click', (e) => {
         // Close accordion when clicking outside (optional)
         if (accordionBtn && accordionContent && 
@@ -246,58 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // 11. Handle mobile CTA visibility on scroll
-    let lastScroll = 0;
-    let beamingCtaVisible = true;
-    const beamingCta = document.querySelector('.beaming-cta');
-    
-    if (beamingCta && window.innerWidth <= 992) {
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            const scrollDirection = currentScroll > lastScroll ? 'down' : 'up';
-            const scrollDelta = Math.abs(currentScroll - lastScroll);
-            
-            // Only hide/show if scrolling significantly
-            if (scrollDelta > 50) {
-                if (scrollDirection === 'down' && beamingCtaVisible) {
-                    // Hide on scroll down
-                    beamingCta.style.transform = 'translateY(100px)';
-                    beamingCta.style.opacity = '0';
-                    beamingCtaVisible = false;
-                } else if (scrollDirection === 'up' && !beamingCtaVisible) {
-                    // Show on scroll up
-                    beamingCta.style.transform = 'translateY(0)';
-                    beamingCta.style.opacity = '1';
-                    beamingCtaVisible = true;
-                }
-            }
-            
-            lastScroll = currentScroll;
-        });
-    }
-    
-    // 12. Adjust mobile CTA for smallest screens
-    function adjustMobileCtaSize() {
-        const beamingCta = document.querySelector('.beaming-cta');
-        if (!beamingCta || window.innerWidth > 992) return;
-        
-        if (window.innerWidth <= 480) {
-            beamingCta.style.width = '160px';
-            beamingCta.style.bottom = '15px';
-            beamingCta.style.right = '15px';
-            beamingCta.style.padding = '12px';
-        } else {
-            beamingCta.style.width = '180px';
-            beamingCta.style.bottom = '20px';
-            beamingCta.style.right = '20px';
-            beamingCta.style.padding = '15px';
-        }
-    }
-    
-    adjustMobileCtaSize();
-    window.addEventListener('resize', adjustMobileCtaSize);
-    
-    // 13. Smooth scrolling for anchor links
+    // 11. Smooth scrolling for anchor links (Re-numbered)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -324,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // 14. Auto-open accordion on page load if URL has hash #nuclear-power
+    // 12. Auto-open accordion on page load if URL has hash #nuclear-power (Re-numbered)
     if (window.location.hash === '#nuclear-power' && accordionBtn && accordionContent) {
         setTimeout(() => {
             accordionBtn.classList.add('active');
@@ -348,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
     
-    // 15. Keyboard navigation for accordion
+    // 13. Keyboard navigation for accordion (Re-numbered)
     if (accordionBtn) {
         accordionBtn.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
