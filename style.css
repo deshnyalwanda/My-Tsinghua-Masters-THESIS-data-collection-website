@@ -1750,99 +1750,147 @@ a:hover {
 }
 /* Add this to the very end of style.css */
 
-/* EXTRA SMALL FONT SIZES FOR MOBILE */
+/* 0.8x FONT SIZES FOR MOBILE PHONES */
 @media (max-width: 992px) {
+    /* Base font scaling */
     html {
-        /* Drastically reduce base font size for mobile */
-        font-size: 8px !important; /* Reduced from 15px */
+        font-size: calc(15px * 0.8) !important; /* 12px instead of 15px */
     }
     
     body {
-        font-size: 0.9rem !important; /* Reduced from 1rem */
+        font-size: calc(1rem * 0.9) !important; /* 0.9rem instead of ~1rem */
     }
     
+    /* Headings - 0.8x reduction */
     .hero-section h1 {
-        font-size: 0.8em !important; /* Further reduced */
+        font-size: calc(1.43em * 0.8) !important; /* ~1.14em */
     }
     
     .hero-section .tagline-study {
-        font-size: 0.7em !important; /* Further reduced */
+        font-size: calc(0.93em * 0.8) !important; /* ~0.74em */
     }
     
     .hero-section .study-purpose,
     .hero-section .collaboration-info {
-        font-size: 0.65em !important; /* Further reduced */
+        font-size: calc(0.9em * 0.8) !important; /* ~0.72em */
     }
     
     .content-section h1 {
-        font-size: 0.9em !important; /* Drastically reduced */
+        font-size: calc(1.4em * 0.8) !important; /* ~1.12em */
     }
     
     .content-section h2 {
-        font-size: 0.8em !important; /* Drastically reduced */
+        font-size: calc(1.2em * 0.8) !important; /* ~0.96em */
     }
     
     .content-section h3 {
-        font-size: 0.75em !important; /* Drastically reduced */
+        font-size: calc(1.05em * 0.8) !important; /* ~0.84em */
     }
     
     .content-section h4 {
-        font-size: 0.7em !important; /* Drastically reduced */
+        font-size: calc(0.95em * 0.8) !important; /* ~0.76em */
     }
     
+    /* Buttons and text - 0.8x reduction */
     .btn {
-        font-size: 0.7em !important; /* Reduced */
+        font-size: calc(0.85em * 0.8) !important; /* ~0.68em */
+        padding: calc(8px * 0.8) calc(15px * 0.8) !important; /* ~6.4px 12px */
     }
     
     .btn.large-btn {
-        font-size: 0.75em !important; /* Reduced */
+        font-size: calc(0.9em * 0.8) !important; /* ~0.72em */
+        padding: calc(10px * 0.8) calc(20px * 0.8) !important; /* ~8px 16px */
     }
     
     p, .hero-inner-container, .researcher-contact {
-        font-size: 0.7em !important; /* Reduced */
+        font-size: calc(1em * 0.8) !important; /* ~0.8em */
+        line-height: 1.5 !important;
     }
     
     table {
-        font-size: 0.6em !important; /* Significantly reduced */
+        font-size: calc(0.9em * 0.8) !important; /* ~0.72em */
+    }
+    
+    table th, table td {
+        padding: calc(14px * 0.8) calc(18px * 0.8) !important; /* ~11.2px 14.4px */
     }
     
     .image-caption {
-        font-size: 0.6em !important; /* Significantly reduced */
+        font-size: calc(0.9em * 0.8) !important; /* ~0.72em */
+    }
+    
+    /* Container padding reduction */
+    .hero-inner-container {
+        padding: calc(25px * 0.8) !important; /* ~20px */
+    }
+    
+    .container {
+        padding: 0 calc(1.25rem * 0.8) !important; /* ~1rem */
+    }
+    
+    /* Logo and navigation */
+    .logo {
+        font-size: calc(1.5em * 0.8) !important; /* ~1.2em */
+    }
+    
+    .main-nav a {
+        font-size: calc(0.9rem * 0.8) !important; /* ~0.72rem */
+    }
+    
+    /* Footer */
+    .main-footer {
+        font-size: calc(0.9em * 0.8) !important; /* ~0.72em */
     }
 }
 
 @media (max-width: 480px) {
+    /* Further 0.8x reduction for very small screens */
     html {
-        /* Even smaller for very small screens */
-        font-size: 7px !important; /* Further reduced */
+        font-size: calc(15px * 0.7) !important; /* 10.5px for extra small */
     }
     
     .hero-section h1 {
-        font-size: 0.7em !important; /* Even smaller */
+        font-size: calc(1.1em * 0.8) !important; /* ~0.88em */
     }
     
     .content-section h1 {
-        font-size: 0.8em !important; /* Even smaller */
+        font-size: calc(1.2em * 0.8) !important; /* ~0.96em */
     }
     
     .content-section h2 {
-        font-size: 0.7em !important; /* Even smaller */
-    }
-    
-    .content-section h3 {
-        font-size: 0.65em !important; /* Even smaller */
-    }
-    
-    .content-section h4 {
-        font-size: 0.6em !important; /* Even smaller */
+        font-size: calc(1.1em * 0.8) !important; /* ~0.88em */
     }
     
     .btn {
-        font-size: 0.6em !important; /* Further reduced */
-        padding: 6px 10px !important; /* Reduce padding too */
+        font-size: calc(0.85em * 0.8) !important; /* ~0.68em */
+        padding: calc(8px * 0.8) calc(15px * 0.8) !important; /* ~6.4px 12px */
     }
     
     .hero-inner-container {
-        padding: 10px !important; /* Reduce padding */
+        padding: calc(15px * 0.8) !important; /* ~12px */
+    }
+    
+    /* Mobile TOC */
+    .mobile-toc-container h2 {
+        font-size: calc(1.1rem * 0.8) !important; /* ~0.88rem */
+    }
+    
+    .mobile-toc-container ul li a {
+        font-size: calc(0.85em * 0.8) !important; /* ~0.68em */
+        padding: calc(0.4rem * 0.8) calc(0.6rem * 0.8) !important; /* ~0.32rem 0.48rem */
+    }
+    
+    /* Static sidebar CTA */
+    .beaming-cta h3 {
+        font-size: calc(0.8em * 0.8) !important; /* ~0.64em */
+    }
+    
+    .beaming-cta p {
+        font-size: calc(0.6em * 0.8) !important; /* ~0.48em */
+    }
+    
+    .btn-beaming-cta {
+        font-size: calc(0.7em * 0.8) !important; /* ~0.56em */
+        padding: calc(6px * 0.8) calc(10px * 0.8) !important; /* ~4.8px 8px */
     }
 }
