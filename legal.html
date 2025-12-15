@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Documentation: Terms, Privacy, and FAQ | Kenya Nuclear Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0d47a1; /* Dark Blue */
+            --secondary-color: #ff9800; /* Orange */
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --border-color: #e0e0e0;
+            --header-height: 60px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* MATCHING INDEX.HTML BASE STYLES */
+        html {
+            font-size: calc(0.6rem + 0.4vw); /* Responsive scaling from indexstyle.css */
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6; /* Matched indexstyle.css */
+            color: var(--text-color);
+            background-color: #fff;
+            padding-top: var(--header-height);
+            font-size: 1rem; /* Matched indexstyle.css */
+        }
+
+        .container {
+            max-width: 1200px; /* Matched indexstyle.css */
+            margin: 0 auto;
+            padding: 0 1.25rem; /* Matched indexstyle.css */
+        }
+
+        /* --- HEADER & NAVIGATION STYLES (Color-Corrected) --- */
+        header.main-header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 0.5rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+        }
+
+        header.main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background-color: #ffffff;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav li a {
+            padding: 10px 15px;
+            display: block;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .main-nav li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        /* Hamburger lines set to white */
+        .hamburger {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #ffffff; 
+            position: relative;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #ffffff;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger::before {
+            transform: translateY(-8px);
+        }
+
+        .hamburger::after {
+            transform: translateY(8px);
+        }
+
+        .nav-toggle.open .hamburger {
+            transform: rotate(45deg);
+        }
+
+        .nav-toggle.open .hamburger::before {
+            opacity: 0;
+        }
+
+        .nav-toggle.open .hamburger::after {
+            transform: rotate(-90deg) translate(8px, -8px);
+        }
+
+        /* Mobile View: Menu background is blue, links are white */
+        @media (max-width: 768px) {
+            .main-nav {
+                position: fixed;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color); /* Set to Blue background (as requested) */
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
+            }
+
+            .main-nav.open {
+                max-height: 300px; 
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+
+            .main-nav li {
+                text-align: center;
+                /* Use a translucent white border on the dark background */
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+            }
+            
+            .main-nav li:last-child {
+                border-bottom: none;
+            }
+            
+            .main-nav li a {
+                color: #ffffff; /* Links in open mobile menu are white (as requested) */
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+        }
+        /* --- END HEADER & NAVIGATION STYLES --- */
+        
+        main {
+            padding: 2rem 0;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--light-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem; /* Consistent with indexstyle.css */
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+        }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem; /* Matched indexstyle.css */
+            color: var(--text-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p, ul, ol {
+            margin-bottom: 1.1rem; /* Adjusted for line-height 1.6 */
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .disclaimer-box {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+        
+        .disclaimer-box strong {
+            color: #721c24;
+        }
+
+        /* FAQ Styling (Accordion) */
+        .faq-item {
+            border: 1px solid var(--border-color);
+            margin-bottom: 10px;
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .faq-question {
+            background-color: #f1f1f1;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #e0e0e0;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            padding: 0 20px;
+        }
+
+        .faq-answer.open {
+            max-height: 500px; 
+            padding: 15px 20px;
+        }
+
+        .faq-arrow {
+            transition: transform 0.3s;
+        }
+
+        .faq-arrow.rotate {
+            transform: rotate(180deg);
+        }
+
+        /* Footer Style */
+        .legal-footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+        .legal-footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.jpg" alt="Website Logo">
+                <span class="logo-text">Kenya Nuclear Power Industrial Capacity Study</span>
+            </a>
+            <nav class="main-nav" id="main-navigation">
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#understanding-nuclear">Understanding Nuclear Power</a></li>
+                    <li><a href="index.html#kenyas-journey">Kenya's Journey</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="toggle navigation" id="nav-toggle">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section id="disclaimer-introduction" class="disclaimer-box" style="background-color: #fff; border-color: var(--secondary-color); border-width: 2px;">
+            <h2>Mandatory Research Disclaimer</h2>
+            <p><strong>This entire Website operates under the explicit understanding and condition that the content provided herein is solely for academic and informational research purposes.</strong></p>
+            <ul>
+                <li>The data, interpretations, and conclusions presented are exclusively derived from the Owner/Researcher's independent academic study, analysis, and inference based on a critical review of publicly available publications, literature, and data sources.</li>
+                <li>The Website does <strong>NOT</strong> represent the official policy, statement, or authoritative stand of the Government of the Republic of Kenya, any Kenyan regulatory body, or any other official state institution.</li>
+                <li>Users are hereby explicitly advised that the content is provided <strong>"AS IS"</strong> and may contain inadvertent errors, omissions, or misinterpretations. <strong>Fact-checking and verification</strong> by the user are mandatory before reliance.</li>
+                <li>For all crucial, official, regulatory, or definitive matters concerning Kenya's nuclear power programme, policy, or legal framework, users <strong>MUST</strong> exclusively refer to the official publications and directives of the Nuclear Power and Energy Agency (NuPEA) via their official website: <a href="https://nuclear.co.ke/" target="_blank">https://nuclear.co.ke/</a>.</li>
+            </ul>
+        </section>
+
+        <section id="terms">
+            <h2>1. Terms of Service ("Terms")</h2>
+            
+            <h3>1.1. Acceptance of Terms</h3>
+            <p>By accessing and using this website (the "Service"), you agree to be bound by these Terms of Service. If you disagree with any part of the terms, then you do not have permission to access the Service.</p>
+
+            <h3>1.2. Purpose of the Service</h3>
+            <p>The Service is maintained by <strong>Desmond Trevor Nyalwanda Otieno</strong> (the "Owner/Researcher") for the sole purpose of disseminating information, analysis, and findings related to a Master’s Level academic research study on Kenya's nuclear supply chain and energy sector context.</p>
+
+            <h3>1.3. Limitation of Liability and Disclaimer of Warranties</h3>
+            <div class="disclaimer-box">
+                <p><strong>Critical Disclaimer:</strong> In adherence to the principles of academic integrity and transparency, the Owner/Researcher expressly disclaims all liability for any loss or damage, direct or indirect, arising from reliance on the Content. The Service is provided without any warranties of any kind, either express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+                <p>The Owner/Researcher shall not be held liable for any decisions made by users based on the research inferences provided on this Service. Users assume all risk for the application of the information contained herein.</p>
+            </div>
+            
+            <h3>1.4. Intellectual Property Rights (Non-Commercial Use)</h3>
+            <p>The Service and its original content, features, and functionality are and will remain the exclusive property of the Owner/Researcher. This intellectual property is protected by copyright and other laws. Reproduction of the original research text and data visualizations is permitted solely for non-commercial academic, governmental, or personal reference, provided the Owner/Researcher and the specific study are explicitly cited.</p>
+            <p>All photographic or sourced third-party material (including charts, figures, and excerpts) is used strictly for illustrative and academic research purposes only and <strong>not for direct or indirect monetary gain</strong>. All sources are diligently acknowledged and cited. You must adhere to the copyright terms of the original source for any re-use of third-party material.</p>
+
+            <h3>1.5. Prohibited Uses</h3>
+            <p>You may not use the Service: a) for any unlawful purpose; b) to solicit others to perform or participate in any unlawful acts; c) to infringe upon or violate our intellectual property rights or the intellectual property rights of others; d) to use the Content to falsely imply endorsement by the Government of Kenya or NuPEA.</p>
+            
+            <h3>1.6. Governing Law</h3>
+            <p>These Terms shall be governed and construed in accordance with the laws of Kenya and the jurisdiction of the academic institution sponsoring the research, without regard to its conflict of law provisions.</p>
+            
+        </section>
+
+        <section id="privacy">
+            <h2>2. Privacy Policy</h2>
+            <p><strong>Effective Date:</strong> December 15, 2024</p>
+
+            <h3>2.1. Collection and Use of Information</h3>
+            <p>The Owner/Researcher respects the privacy of every individual who visits the Service. This Service is primarily informational and research-oriented. The primary method of data collection for this website is <strong>non-personally identifiable usage data</strong>.</p>
+            
+            <ul>
+                <li><strong>Log Data:</strong> We collect information that your browser sends whenever you visit our Service ("Log Data"). This may include your computer's Internet Protocol ("IP") address, browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, and other statistics. This data is used solely for the technical purposes of monitoring site performance, ensuring security, and analyzing visitor engagement for the research study's metrics.</li>
+                <li><strong>Cookies:</strong> We may use cookies to collect information and track activity on our Service. You have the option to either accept or refuse these cookies.</li>
+                <li><strong>Voluntarily Provided Information:</strong> If you choose to contact the Owner/Researcher via email or submit a form (e.g., a voluntary survey linked from this site), we collect the information you provide (e.g., name, email address, comments) for the sole purpose of responding to your inquiry or processing your survey response for the academic study.</li>
+            </ul>
+
+            <h3>2.2. Disclosure of Personal Information</h3>
+            <p>We will not sell, trade, or otherwise transfer your personally identifiable information to outside parties. We may disclose your information where required to do so by law or subpoena or if we believe that such action is necessary to comply with the law and the reasonable requests of law enforcement.</p>
+
+            <h3>2.3. Data Security and Retention</h3>
+            <p>The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. We implement reasonable administrative, technical, and physical safeguards to protect your personal data, if collected, against loss, theft, and unauthorized access. Information collected for the research study will be retained only as long as necessary to fulfill the research purposes and academic requirements of the sponsoring institution.</p>
+        </section>
+
+        <section id="faq">
+            <h2>3. Frequently Asked Questions (FAQ)</h2>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" data-toggle="faq-1">
+                        Is this website an official government publication? <i class="fas fa-chevron-down faq-arrow"></i>
+                    </div>
+                    <div class="faq-answer" id="faq-1">
+                        <p><strong>Absolutely not.</strong> This website is maintained by Desmond Trevor Nyalwanda Otieno as part of an independent Master's research study conducted at Tsinghua University. The content, analysis, and views expressed are those of the Owner/Researcher alone. They do not represent the official policy, direction, or position of the Government of Kenya or any of its official bodies.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" data-toggle="faq-2">
+                        How reliable is the information, and should I use it for business decisions? <i class="fas fa-chevron-down faq-arrow"></i>
+                    </div>
+                    <div class="faq-answer" id="faq-2">
+                        <p>The information is based on the Owner/Researcher's dedicated academic efforts and inferences from available public sources. However, as independent research, it is subject to the possibility of error or changes in public information. <strong>It must not be used for crucial business, regulatory, or policy decisions.</strong> You are required to conduct your own fact-checking. For authoritative information, please consult the official source: <a href="https://nuclear.co.ke/" target="_blank">NuPEA (nuclear.co.ke)</a>.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" data-toggle="faq-3">
+                        Are the images and graphs on the site freely reusable? <i class="fas fa-chevron-down faq-arrow"></i>
+                    </div>
+                    <div class="faq-answer" id="faq-3">
+                        <p>Original text and graphs are the intellectual property of the Owner and are used strictly for non-monetary, research purposes. Sourced images and third-party content are used under principles of fair use/fair dealing for academic purposes, with full acknowledgment of the source. You are explicitly prohibited from using any content from this site for direct monetary gain. For re-use, you must secure permission from the respective copyright holders for third-party images and properly cite the Owner/Researcher for all original content.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" data-toggle="faq-4">
+                        What personal data is collected when I browse this website? <i class="fas fa-chevron-down faq-arrow"></i>
+                    </div>
+                    <div class="faq-answer" id="faq-4">
+                        <p>We only collect non-personally identifiable Log Data (like IP addresses, pages visited, and browser type) to monitor site performance and analyze research interest. No personal data is collected unless you voluntarily provide it, such as by submitting an inquiry via email. We do not sell or share any data for commercial purposes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact-info">
+            <h2>4. Contact Information</h2>
+            <p>For any questions regarding these Terms, the Privacy Policy, or the research study itself, please contact the Owner/Researcher:</p>
+            <p><strong>Researcher:</strong> Desmond Trevor Nyalwanda Otieno</p>
+            <p><strong>Affiliation:</strong> Master's Research Study, Tsinghua University</p>
+            <p><strong>Contact Email:</strong> desm24@mails.tsinghua.edu.cn</p>
+            <p><strong>Last Updated:</strong> <span id="last-updated-date">December 15, 2024</span></p>
+        </section>
+
+    </main>
+
+    <footer class="legal-footer">
+        <p>&copy; <span id="current-year">2024</span> Desmond Trevor Nyalwanda Otieno. All Rights Reserved. | Independent Master's Research Study.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Dynamic Copyright Year Update
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            // 2. FAQ Accordion Functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const targetId = question.getAttribute('data-toggle');
+                    const answer = document.getElementById(targetId);
+                    const arrow = question.querySelector('.faq-arrow');
+                    
+                    // Close all other open answers
+                    document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
+                        if (openAnswer.id !== targetId) {
+                            openAnswer.classList.remove('open');
+                            openAnswer.previousElementSibling.querySelector('.faq-arrow').classList.remove('rotate');
+                        }
+                    });
+
+                    // Toggle the current answer
+                    answer.classList.toggle('open');
+                    arrow.classList.toggle('rotate');
+                });
+            });
+            
+            // 3. Simple Header Link Scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    // Only prevent default if it's a section anchor on this page
+                    if (this.getAttribute('href').length > 1) {
+                         e.preventDefault();
+                         document.querySelector(this.getAttribute('href')).scrollIntoView({
+                             behavior: 'smooth'
+                         });
+                    }
+                });
+            });
+            
+            // 4. Hamburger Menu Toggle Logic
+            const navToggle = document.getElementById('nav-toggle');
+            const mainNav = document.getElementById('main-navigation');
+
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('open');
+                mainNav.classList.toggle('open');
+            });
+            
+            // Close menu when a link is clicked (on mobile)
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navToggle.classList.remove('open');
+                        mainNav.classList.remove('open');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -84,6 +84,7 @@ body {
     transition: color 0.3s ease;
     padding: 5px 0;
     white-space: nowrap;
+    font-size: 0.9rem;
 }
 
 .main-nav a:hover {
@@ -1510,3 +1511,214 @@ table tr:hover {
         font-size: 1.1rem;
     }
 }
+/* Section Links Styling */
+.section-links {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.section-links li {
+    margin-bottom: 10px;
+}
+
+.section-links a {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 4px 0;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.section-links a:hover {
+    color: #0d47a1;
+    text-decoration: none;
+}
+
+/* ===== MOBILE TABLE OF CONTENTS (On This Page) - NEW ===== */
+.mobile-toc-container {
+    display: none; /* Hidden by default (desktop) */
+    background: #e3f2fd; /* Light blue background */
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 1px solid #bbdefb;
+    grid-column: 1 / -1; /* Make it span the full width of the container on small screens */
+}
+
+.mobile-toc-container h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: #1a237e;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid #90caf9;
+    padding-bottom: 0.5rem;
+}
+
+.mobile-toc-container ul {
+    list-style: none; /* Remove list bullets */
+    display: flex; /* Arrange links horizontally */
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 0.75rem; /* Reduced gap for smaller screens */
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-toc-container ul li {
+    flex-shrink: 0;
+}
+
+.mobile-toc-container ul li a {
+    color: #1976d2;
+    text-decoration: none; /* *** REMOVE UNDERLINE (Requested) *** */
+    font-weight: 500;
+    padding: 0.5rem 0.75rem; /* Slightly smaller padding */
+    display: inline-block;
+    background-color: #f1f8ff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    border: 1px solid #bbdefb;
+    font-size: 0.9rem;
+}
+
+.mobile-toc-container ul li a:hover {
+    background-color: #bbdefb;
+    color: #1a237e;
+}
+
+/* Mobile-specific CTA and TOC styling (≤ 992px) */ 
+@media (max-width: 992px) {
+    .content-with-sidebar { 
+        grid-template-columns: 1fr; 
+        gap: 2rem; 
+    }
+    
+    .main-content { 
+        grid-column: 1; 
+    }
+    
+    /* Hide the entire static sidebar TOC on mobile */ 
+    .static-toc-sidebar { 
+        display: none !important; 
+    } 
+
+    /* NEW: Show the mobile TOC */
+    .mobile-toc-container {
+        display: block;
+    }
+    
+}
+/* General Link Styling (Requested: Blue color, no underline) */
+a {
+    color: #007bff; /* Standard, accessible blue */
+    text-decoration: none; /* Remove underline (Requested) */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Darker blue on hover for feedback */
+    text-decoration: underline; /* Optional: Adds underline back on hover for accessibility */
+}
+
+/* Ensure existing header links keep their white color */
+.main-nav a {
+    color: #fff;
+    /* text-decoration: none; is preserved by the general 'a' rule, or explicitly added for safety */
+}
+
+/* NEW: Styles for the content inside the modal for a clean, professional look (Requested) */
+.modal-body p {
+    margin-bottom: 1.5rem; /* Increase spacing after paragraphs */
+    text-align: justify;
+}
+
+.modal-body h3, .modal-body h4 {
+    border-left: 5px solid #1976d2; /* Professional accent border */
+    padding-left: 15px;
+    margin-top: 2.5rem; /* More space before subtopics */
+    margin-bottom: 1rem;
+}
+
+.modal-body ul {
+    margin-bottom: 1.5rem; /* Spacing after lists */
+    padding-left: 25px; /* Ensure lists are indented properly */
+    list-style: disc; /* Ensure default list style is present */
+}
+
+/* Style the modal trigger buttons */
+#read-more-toggle-nuclear, #read-more-toggle-turbine, #read-more-toggle-bop {
+    background-color: #e8f0fe !important; /* Lighter, more professional background */
+    color: #1a237e !important; /* Darker, professional text */
+    border: 1px solid #c5d8ff !important;
+    padding: 15px !important;
+    margin: 20px 0 !important;
+    transition: all 0.3s ease;
+}
+
+#read-more-toggle-nuclear:hover, #read-more-toggle-turbine:hover, #read-more-toggle-bop:hover {
+    background-color: #d0e1ff !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* ... existing CSS content ... */
+
+/* NEW: Styles for the content inside the modal for a clean, professional look (Requested) */
+.modal-body p {
+    margin-bottom: 1.5rem; /* Increase spacing after paragraphs */
+    text-align: justify;
+}
+
+.modal-body h3, .modal-body h4 {
+    border-left: 5px solid #1976d2; /* Professional accent border */
+    padding-left: 15px;
+    margin-top: 2.5rem; /* More space before subtopics */
+    margin-bottom: 1rem;
+}
+
+.modal-body ul {
+    margin-bottom: 1.5rem; /* Spacing after lists */
+    padding-left: 25px; /* Ensure lists are indented properly */
+    list-style: disc; /* Ensure default list style is present */
+}
+
+/* Style the modal trigger buttons */
+#read-more-toggle-nuclear, #read-more-toggle-turbine, #read-more-toggle-bop {
+    background-color: #e8f0fe !important; /* Lighter, more professional background */
+    color: #1a237e !important; /* Darker, professional text */
+    /* ... other styles ... */
+}
+
+/* FIX: Ensure the beaming mobile CTA and its container reappear (as requested by user) */
+/* This rule is placed at the end to guarantee it overrides any conflicting 'display: none' rule. */
+@media (max-width: 992px) {
+    /* Re-assert visibility for the mobile CTA's container */
+    .static-toc-sidebar {
+        display: block !important;
+    }
+    /* Re-assert visibility for the CTA itself */
+    .beaming-cta {
+        display: block !important;
+    }
+}
+/* style.css modification */
+
+/* ... other styles ... */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    /* Now scales smaller relative to new root font size */
+    font-size: 1.5em;
+}
+
+.logo img {
+    /* Existing rules */
+    height: 40px;
+    margin-right: 10px;
+    
+    /* NEW: Rules to make the image circular */
+    width: 40px; 
+    border-radius: 50%;
+}
+/* ... other styles ... */

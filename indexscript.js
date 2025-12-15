@@ -236,6 +236,19 @@ document.addEventListener('DOMContentLoaded', function() {
             mainNav.classList.remove('active');
             navToggle.classList.remove('active');
         }
+        
+        // Close Mobile TOC when clicking outside
+        const mobileTocNav = document.querySelector('.mobile-toc-nav');
+        const tocToggleBtn = document.querySelector('.toc-toggle-btn');
+        const tocList = document.querySelector('.toc-list');
+        
+        if (mobileTocNav && tocToggleBtn && tocList && 
+            !e.target.closest('.mobile-toc-nav') &&
+            tocList.classList.contains('active')) {
+            
+            tocList.classList.remove('active');
+            tocToggleBtn.setAttribute('aria-expanded', 'false');
+        }
     });
     
     // 11. Smooth scrolling for anchor links (Re-numbered)
@@ -260,6 +273,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (window.innerWidth <= 992 && mainNav.classList.contains('active')) {
                     mainNav.classList.remove('active');
                     navToggle.classList.remove('active');
+                }
+                
+                // Close Mobile TOC if open
+                const tocList = document.querySelector('.toc-list');
+                const tocToggleBtn = document.querySelector('.toc-toggle-btn');
+                if (window.innerWidth <= 768 && tocList && tocList.classList.contains('active')) {
+                    tocList.classList.remove('active');
+                    if (tocToggleBtn) tocToggleBtn.setAttribute('aria-expanded', 'false');
                 }
             }
         });
@@ -296,6 +317,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 this.click();
             }
+        });
+    }
+
+    // 14. Mobile Table of Contents (TOC) Toggle (NEW)
+    const tocToggleBtn = document.querySelector('.toc-toggle-btn');
+    const tocList = document.querySelector('.toc-list');
+    
+    if (tocToggleBtn && tocList) {
+        tocToggleBtn.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+            
+            // Toggle the active class for visual state change (via CSS transition/display)
+            tocList.classList.toggle('active');
+            
+            // Update aria attributes for accessibility
+            this.setAttribute('aria-expanded', !isExpanded);
+        });
+        
+        // Optional: Close TOC after a link is clicked (improves mobile UX)
+        const tocLinks = tocList.querySelectorAll('a');
+        tocLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Ensure the closing logic is only executed if it's visible (for safety)
+                if (window.innerWidth <= 768 && tocList.classList.contains('active')) {
+                    tocList.classList.remove('active');
+                    tocToggleBtn.setAttribute('aria-expanded', 'false');
+                }
+                // Smooth scrolling handled by existing logic (section 11)
+            });
         });
     }
 });

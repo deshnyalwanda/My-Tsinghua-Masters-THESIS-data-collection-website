@@ -1667,3 +1667,254 @@ body {
     z-index: 2; /* Keep content above the images */
     position: relative; /* Ensure z-index works */
 }
+
+/* ===== MOBILE TABLE OF CONTENTS (On This Page) - NEW ===== */
+.mobile-toc-container {
+    display: none; /* Hidden by default (desktop) */
+    background: #e3f2fd; 
+    /* 1. REDUCED CONTAINER PADDING */
+    padding: 0.75rem; 
+    border-radius: 8px;
+    /* KEY CHANGE: Set to 0 to eliminate the gap created by this div */
+    margin-bottom: 0; 
+    border: 1px solid #bbdefb;
+    grid-column: 1 / -1; 
+}
+
+.mobile-toc-container h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem; 
+    color: #1a237e;
+    /* 2. REDUCED BOTTOM MARGIN AND PADDING */
+    margin-bottom: 0.5rem; 
+    border-bottom: 1px solid #90caf9; 
+    padding-bottom: 0.5rem; 
+}
+
+.mobile-toc-container ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    /* 3. REDUCED GAP BETWEEN LINKS */
+    gap: 0.5rem; 
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-toc-container ul li {
+    flex-shrink: 0;
+}
+
+.mobile-toc-container ul li a {
+    color: #1976d2;
+    text-decoration: none; 
+    font-weight: 500;
+    /* 4. REDUCED LINK PADDING */
+    padding: 0.4rem 0.6rem; 
+    display: inline-block;
+    background-color: #f1f8ff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    border: 1px solid #bbdefb;
+    font-size: 0.85rem; 
+}
+
+.mobile-toc-container ul li a:hover {
+    background-color: #bbdefb;
+    color: #1a237e;
+}
+
+/* Mobile-specific CTA and TOC styling (≤ 992px) */ 
+@media (max-width: 992px) {
+    .content-with-sidebar { 
+        grid-template-columns: 1fr; 
+        gap: 2rem; 
+    }
+    
+    .main-content { 
+        grid-column: 1; 
+    }
+    
+    /* Hide the entire static sidebar TOC on mobile */ 
+    .static-toc-sidebar { 
+        display: none !important; 
+    } 
+
+    /* NEW: Show the mobile TOC */
+    .mobile-toc-container {
+        display: block;
+    }
+    
+}
+/* General Link Styling (Requested: Blue color, no underline) */
+a {
+    color: #007bff; /* Standard, accessible blue */
+    text-decoration: none; /* Remove underline (Requested) */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Darker blue on hover for feedback */
+    text-decoration: underline; /* Optional: Adds underline back on hover for accessibility */
+}
+
+/* Ensure existing header links keep their white color */
+.main-nav a {
+    color: #fff;
+    /* text-decoration: none; is preserved by the general 'a' rule, or explicitly added for safety */
+}
+
+/* NEW: Styles for the content inside the modal for a clean, professional look (Requested) */
+.modal-body p {
+    margin-bottom: 1.5rem; /* Increase spacing after paragraphs */
+    text-align: justify;
+}
+
+.modal-body h3, .modal-body h4 {
+    border-left: 5px solid #1976d2; /* Professional accent border */
+    padding-left: 15px;
+    margin-top: 2.5rem; /* More space before subtopics */
+    margin-bottom: 1rem;
+}
+
+.modal-body ul {
+    margin-bottom: 1.5rem; /* Spacing after lists */
+    padding-left: 25px; /* Ensure lists are indented properly */
+    list-style: disc; /* Ensure default list style is present */
+}
+
+/* Style the modal trigger buttons */
+#read-more-toggle-nuclear, #read-more-toggle-turbine, #read-more-toggle-bop {
+    background-color: #e8f0fe !important; /* Lighter, more professional background */
+    color: #1a237e !important; /* Darker, professional text */
+    border: 1px solid #c5d8ff !important;
+    padding: 15px !important;
+    margin: 20px 0 !important;
+    transition: all 0.3s ease;
+}
+
+#read-more-toggle-nuclear:hover, #read-more-toggle-turbine:hover, #read-more-toggle-bop:hover {
+    background-color: #d0e1ff !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* This rule targets the element that immediately follows the TOC container.
+   The * selector targets any element type (div, h2, p, etc.)
+*/
+.mobile-toc-container + * {
+    margin-top: 0 !important;
+    padding-top: 0 !important; /* Adding padding-top just in case */
+}
+
+/* Common Alternative: If the next element is a Heading, target it directly */
+.mobile-toc-container + h2,
+.mobile-toc-container + h3 {
+    margin-top: 0 !important;
+}
+/* ... existing CSS content ... */
+
+/* NEW: Styles for the content inside the modal for a clean, professional look (Requested) */
+.modal-body p {
+    margin-bottom: 1.5rem; /* Increase spacing after paragraphs */
+    text-align: justify;
+}
+
+.modal-body h3, .modal-body h4 {
+    border-left: 5px solid #1976d2; /* Professional accent border */
+    padding-left: 15px;
+    margin-top: 2.5rem; /* More space before subtopics */
+    margin-bottom: 1rem;
+}
+
+.modal-body ul {
+    margin-bottom: 1.5rem; /* Spacing after lists */
+    padding-left: 25px; /* Ensure lists are indented properly */
+    list-style: disc; /* Ensure default list style is present */
+}
+
+/* Style the modal trigger buttons */
+#read-more-toggle-nuclear, #read-more-toggle-turbine, #read-more-toggle-bop {
+    background-color: #e8f0fe !important; /* Lighter, more professional background */
+    color: #1a237e !important; /* Darker, professional text */
+    /* ... other styles ... */
+}
+
+/* FIX: Ensure the beaming mobile CTA and its container reappear (as requested by user) */
+/* This rule is placed at the end to guarantee it overrides any conflicting 'display: none' rule. */
+@media (max-width: 992px) {
+    /* Re-assert visibility for the mobile CTA's container */
+    .static-toc-sidebar {
+        display: block !important;
+    }
+    /* Re-assert visibility for the CTA itself */
+    .beaming-cta {
+        display: block !important;
+    }
+}
+@media (max-width: 992px) {
+    .static-toc-sidebar {
+        display: none !important; /* Explicitly hide the sidebar */
+    }
+    .beaming-cta {
+        display: block !important; /* Keep the CTA visible */
+    }
+}
+/* Remove the huge white space before the mobile TOC */
+.content-with-sidebar {
+    padding-top: 0 !important;
+}
+
+/* And ensure the mobile TOC sits flush */
+.mobile-toc-container {
+    margin-top: 0 !important;
+    padding-top: 0.5rem !important; /* Reduce top padding */
+}
+/* Custom rule to unify hero action button colors to a bright orange */
+.hero-actions-buttons .btn {
+    /* Set the base background color to the desired orange */
+    background-color: #ff9800 !important; /* A standard, bright orange */
+    /* Set the text color to white or a dark color for contrast (white works well here) */
+    color: #fff !important;
+    /* Optional: Ensure border is also the same color if present */
+    border-color: #ff9800 !important;
+}
+
+/* Custom rule to unify hover states for hero action buttons to a slightly darker orange */
+.hero-actions-buttons .btn:hover {
+    /* Set the hover color to a darker orange */
+    background-color: #fb8c00 !important; /* Slightly darker orange */
+    /* Ensure the transform is applied on hover for visual feedback */
+    transform: translateY(-2px);
+    /* Remove any specific shadow from other classes if present (optional but good practice) */
+    box-shadow: none !important; 
+}
+
+/* Applying the specific hover shadow to all buttons for consistency, using an orange shadow */
+.hero-actions-buttons .btn-primary:hover, 
+.hero-actions-buttons .btn-action-main:hover,
+.hero-actions-buttons .btn-secondary:hover {
+    /* Orange shadow: 0 4px 12px rgba(R, G, B, 0.3) */
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4) !important; /* Orange with 40% opacity */
+}
+/* style.css modification */
+
+/* ... other styles ... */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    /* Now scales smaller relative to new root font size */
+    font-size: 1.5em;
+}
+
+.logo img {
+    /* Existing rules */
+    height: 40px;
+    margin-right: 10px;
+    
+    /* NEW: Rules to make the image circular */
+    width: 40px; 
+    border-radius: 50%;
+}
+/* ... other styles ... */

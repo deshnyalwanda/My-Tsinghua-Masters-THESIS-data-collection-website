@@ -8,19 +8,23 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
     <header class="main-header">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="logo.png" alt="Website Logo">
-                <span class="logo-text">Kenya Nuclear Study</span>
+                <img src="logo.jpg" alt="Website Logo">
+                <span class="logo-text">Kenya Nuclear Power Industrial Capacity Study</span>
             </a>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#nuclear-power">Nuclear Power</a></li>
-                    <li><a href="#kenyas-journey">Kenya's Journey</a></li>
-                    <li><a href="supply-chain.html">Supply Chain</a></li>
+                    <li><a href="#nuclear-power">What is Nuclear Power</a></li>
+                    <li><a href="#kenyas-journey">Kenya's Nuclear Journey</a></li>
+                    <li><a href="supply-chain.html">Supply Chain Opportunities</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -42,7 +46,7 @@
                     <h1>Assessing Kenya's Industrial Capacity To Support Construction and Operation of It's First Nuclear Power Plant</h1>
                     <p class="tagline-study">
                         A Research Study by Desmond Trevor Nyalwanda Otieno<br>
-                        Master's Student in Nuclear Engineering and Management<br>
+                        Student in Nuclear Engineering and Management<br>
                         Department of Engineering Physics, Tsinghua University, China
                     </p>
                     <div class="hero-actions-buttons">
@@ -52,7 +56,7 @@
                         <a href="supply-chain.html" class="btn btn-primary">
                             <i class="fas fa-industry"></i> Explore Opportunities
                         </a>
-                        <button id="openGoogleFormHero" class="btn btn-secondary">
+                         <button id="openGoogleFormHero" class="btn btn-secondary">
                             <i class="fas fa-clipboard-list"></i> Fill the Form
                         </button>
                     </div>
@@ -89,10 +93,19 @@
                 </div>
             </div>
         </section>
-
         <div class="container content-with-sidebar">
             <div class="main-content">
                 <section id="nuclear-power" class="content-section">
+                     <div class="container content-with-sidebar">
+            <div class="mobile-toc-container">
+                <h2>On This Page</h2>
+                <ul id="mobile-toc-list">
+                    <li><a href="#nuclear-power" class="toc-link">How Nuclear Power Works</a></li>
+                    <li><a href="#kenyas-journey" class="toc-link">Kenya's Strategic Path to Nuclear Energy</a></li>
+                    <li><a href="#opportunities" class="toc-link">Supply Chain Opportunities</a></li>
+                </ul>
+            </div>
+        </div>
                     <div class="section-header">
                         <h2>How Nuclear Power Works</h2>
                         <p class="section-subtitle">Understanding the technology behind nuclear energy generation</p>
@@ -172,32 +185,36 @@
                         <p class="section-subtitle">Kenya's carefully planned journey towards nuclear power adoption</p>
                     </div>
                     <div class="journey-content">
-                        <p>Kenya's decision to explore nuclear energy was not sudden but a carefully considered move towards securing its long-term energy needs. The conversation formally began around 2010 when the National Economic and Social Council (NESC), Kenya's highest advisory body on government policies, recommended adopting a nuclear power program as a national priority.</p>
                         <div class="drivers-grid">
-                            <div class="driver-card">
-                                <div class="driver-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <h4>Increasing Energy Demand</h4>
-                                <p>Kenya's economy is growing, and with it, the demand for electricity. Historic peaks in electricity demand reached 2,362.28 MW in July 2025.</p>
-                            </div>
-                            <div class="driver-card">
-                                <div class="driver-icon">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <h4>Security of Supply</h4>
-                                <p>Nuclear power offers stable, continuous "baseload" energy that can run day and night, providing crucial reliability.</p>
-                            </div>
-                            <div class="driver-card">
-                                <div class="driver-icon">
-                                    <i class="fas fa-dollar-sign"></i>
-                                </div>
-                                <h4>Cost Stability</h4>
-                                <p>The cost of uranium fuel is a small fraction of the total cost, offering protection against fossil fuel price volatility.</p>
-                            </div>
-                        </div>
-                    </div>
-
+    <div class="driver-card">
+        <div class="driver-icon">
+            <i class="fas fa-chart-line"></i>
+        </div>
+        <h4>Increasing Energy Demand</h4>
+        <p>Kenya's economy is growing, and with it, the demand for electricity. Historic peaks in electricity demand reached 2,362.28 MW in July 2025.</p>
+    </div>
+    <div class="driver-card">
+        <div class="driver-icon">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+        <h4>Security of Supply</h4>
+        <p>Nuclear power offers stable, continuous "baseload" energy that can run day and night, providing crucial reliability.</p>
+    </div>
+    <div class="driver-card">
+        <div class="driver-icon">
+            <i class="fas fa-dollar-sign"></i>
+        </div>
+        <h4>Cost Stability</h4>
+        <p>The cost of uranium fuel is a small fraction of the total cost, offering protection against fossil fuel price volatility.</p>
+    </div>
+    <div class="driver-card">
+        <div class="driver-icon">
+            <i class="fas fa-leaf"></i>
+        </div>
+        <h4>Environmental Sustainability</h4>
+        <p>Nuclear power produces zero carbon emissions during operation, supporting Kenya's commitment to clean energy and climate goals.</p>
+    </div>
+</div>
                     <div class="milestone-timeline">
                         <h3>Key Milestones on Kenya's Nuclear Journey</h3>
                         <div class="timeline">
@@ -311,7 +328,7 @@
                                 <button id="openGoogleFormContact" class="btn btn-action-main">
                                     <i class="fas fa-clipboard-list"></i> Provide Feedback/Fill the Form
                                 </button>
-                                <p class="form-note">All responses are confidential and used solely for the Master's research study.</p>
+                                <p class="form-note">All responses are confidential and used solely for the Academic research study.</p>
                             </div>
                         </div>
                         <div class="contact-details">
@@ -333,8 +350,9 @@
                             <div class="collaboration-info">
                                 <h3><i class="fas fa-handshake"></i> Collaborating Institutions</h3>
                                 <ul>
-                                    <li><i class="fas fa-university"></i> Nuclear Power and Energy Agency (NuPEA)</li>
+                                    <li><i class="fas fa-atom"></i> Nuclear Power and Energy Agency (NuPEA)</li>
                                     <li><i class="fas fa-university"></i> Tsinghua University</li>
+                                    <li><i class="fas fa-atom"></i> China National Nuclear Corporation</li>
                                 </ul>
                             </div>
                         </div>
@@ -362,20 +380,23 @@
             </aside>
         </div>
     </main>
+    
 
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
                     <p>&copy; <span id="current-year">2024</span> Desmond Trevor Nyalwanda Otieno. All Rights Reserved.</p>
-                    <p>Master's Research Study, Tsinghua University.</p>
+                    <p>Academic Research Study, Tsinghua University.</p>
                 </div>
                 <nav class="footer-nav">
-                    <ul>
-                        <li><a href="#home"><i class="fas fa-arrow-up"></i> Top</a></li>
-                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                    </ul>
-                </nav>
+          <ul>
+            <li><a href="#home"><i class="fas fa-arrow-up"></i> Top</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="legal.html#privacy">Privacy Policy</a></li>
+            <li><a href="legal.html#terms">Terms of Service</a></li>
+          </ul>
+        </nav>
             </div>
         </div>
     </footer>
