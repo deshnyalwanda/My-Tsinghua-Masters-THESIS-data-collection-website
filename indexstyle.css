@@ -1918,3 +1918,113 @@ a:hover {
     border-radius: 50%;
 }
 /* ... other styles ... */
+/* Add this to the very end of indexstyle.css */
+
+/* EXTRA SMALL FONT SIZES FOR MOBILE */
+@media (max-width: 992px) {
+    html {
+        /* Drastically reduce base font size for mobile */
+        font-size: 8px !important; /* Reduced from 15px */
+    }
+    
+    body {
+        font-size: 0.9rem !important; /* Reduced from 1rem */
+    }
+    
+    .hero-inner-container h1 {
+        font-size: 1.2em !important; /* Reduced from 1.5em */
+    }
+    
+    .tagline-study {
+        font-size: 0.8em !important; /* Reduced from 1.1em */
+    }
+    
+    .section-header h2 {
+        font-size: 1em !important; /* Drastically reduced */
+    }
+    
+    .section-subtitle {
+        font-size: 0.8em !important; /* Reduced */
+    }
+    
+    .accordion-header h3 {
+        font-size: 0.9em !important; /* Drastically reduced */
+    }
+    
+    .accordion-summary {
+        font-size: 0.8em !important; /* Reduced */
+    }
+    
+    .accordion-article h2 {
+        font-size: 1em !important; /* Drastically reduced */
+    }
+    
+    .accordion-article h3 {
+        font-size: 0.9em !important; /* Drastically reduced */
+    }
+    
+    .accordion-article p {
+        font-size: 0.8em !important; /* Reduced */
+    }
+    
+    .btn {
+        font-size: 0.7em !important; /* Reduced */
+    }
+    
+    p, .hero-inner-container, .collaboration-logos span {
+        font-size: 0.8em !important; /* Reduced */
+    }
+    
+    .driver-card h4 {
+        font-size: 0.9em !important; /* Reduced */
+    }
+    
+    .driver-card p {
+        font-size: 0.8em !important; /* Reduced */
+    }
+    
+    .timeline-content h4 {
+        font-size: 0.9em !important; /* Reduced */
+    }
+    
+    .timeline-content p {
+        font-size: 0.8em !important; /* Reduced */
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        /* Even smaller for very small screens */
+        font-size: 7px !important; /* Further reduced */
+    }
+    
+    .hero-inner-container h1 {
+        font-size: 1em !important; /* Even smaller */
+    }
+    
+    .section-header h2 {
+        font-size: 0.9em !important; /* Even smaller */
+    }
+    
+    .accordion-header h3 {
+        font-size: 0.8em !important; /* Even smaller */
+    }
+    
+    .btn {
+        font-size: 0.6em !important; /* Further reduced */
+        padding: 0.5rem 1rem !important; /* Reduce padding too */
+    }
+    
+    .hero-inner-container {
+        padding: 1rem !important; /* Reduce padding */
+    }
+    
+    .mobile-toc-container h2 {
+        font-size: 0.9em !important; /* Reduced */
+    }
+    
+    .mobile-toc-container ul li a {
+        font-size: 0.7em !important; /* Reduced */
+        padding: 0.3rem 0.5rem !important; /* Reduce padding */
+    }
+}

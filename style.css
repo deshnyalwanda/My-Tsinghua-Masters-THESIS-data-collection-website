@@ -1748,3 +1748,101 @@ a:hover {
         opacity: 0;
     }
 }
+/* Add this to the very end of style.css */
+
+/* EXTRA SMALL FONT SIZES FOR MOBILE */
+@media (max-width: 992px) {
+    html {
+        /* Drastically reduce base font size for mobile */
+        font-size: 8px !important; /* Reduced from 15px */
+    }
+    
+    body {
+        font-size: 0.9rem !important; /* Reduced from 1rem */
+    }
+    
+    .hero-section h1 {
+        font-size: 0.8em !important; /* Further reduced */
+    }
+    
+    .hero-section .tagline-study {
+        font-size: 0.7em !important; /* Further reduced */
+    }
+    
+    .hero-section .study-purpose,
+    .hero-section .collaboration-info {
+        font-size: 0.65em !important; /* Further reduced */
+    }
+    
+    .content-section h1 {
+        font-size: 0.9em !important; /* Drastically reduced */
+    }
+    
+    .content-section h2 {
+        font-size: 0.8em !important; /* Drastically reduced */
+    }
+    
+    .content-section h3 {
+        font-size: 0.75em !important; /* Drastically reduced */
+    }
+    
+    .content-section h4 {
+        font-size: 0.7em !important; /* Drastically reduced */
+    }
+    
+    .btn {
+        font-size: 0.7em !important; /* Reduced */
+    }
+    
+    .btn.large-btn {
+        font-size: 0.75em !important; /* Reduced */
+    }
+    
+    p, .hero-inner-container, .researcher-contact {
+        font-size: 0.7em !important; /* Reduced */
+    }
+    
+    table {
+        font-size: 0.6em !important; /* Significantly reduced */
+    }
+    
+    .image-caption {
+        font-size: 0.6em !important; /* Significantly reduced */
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        /* Even smaller for very small screens */
+        font-size: 7px !important; /* Further reduced */
+    }
+    
+    .hero-section h1 {
+        font-size: 0.7em !important; /* Even smaller */
+    }
+    
+    .content-section h1 {
+        font-size: 0.8em !important; /* Even smaller */
+    }
+    
+    .content-section h2 {
+        font-size: 0.7em !important; /* Even smaller */
+    }
+    
+    .content-section h3 {
+        font-size: 0.65em !important; /* Even smaller */
+    }
+    
+    .content-section h4 {
+        font-size: 0.6em !important; /* Even smaller */
+    }
+    
+    .btn {
+        font-size: 0.6em !important; /* Further reduced */
+        padding: 6px 10px !important; /* Reduce padding too */
+    }
+    
+    .hero-inner-container {
+        padding: 10px !important; /* Reduce padding */
+    }
+}
