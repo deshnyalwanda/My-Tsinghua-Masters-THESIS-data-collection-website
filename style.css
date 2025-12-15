@@ -1722,3 +1722,29 @@ a:hover {
     border-radius: 50%;
 }
 /* ... other styles ... */
+/* Add to style.css - Button press animation for close button */
+.modal-close-btn:active {
+    background-color: #ddd !important;
+    transform: scale(0.95);
+    transition: transform 0.1s ease, background-color 0.1s ease;
+}
+
+/* Optional: Add a subtle animation to modal when closing */
+.read-more-modal.active {
+    animation: fadeIn 0.3s ease;
+}
+
+.read-more-modal:not(.active) .modal-content-container {
+    animation: slideOut 0.3s ease;
+}
+
+@keyframes slideOut {
+    from { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to { 
+        transform: translateY(30px);
+        opacity: 0;
+    }
+}
