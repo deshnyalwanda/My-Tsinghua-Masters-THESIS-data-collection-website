@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const button = document.getElementById(id);
         if (button) {
             button.addEventListener('click', () => {
-                window.open('https://docs.google.com/forms/d/e/1FAIpQLSf5ipXZmeUTUHt-QQRhgRwPnZe-1EOgLeMNb2p2x0m8yVhKUw/viewform?usp=dialog', '_blank');
+                window.open('https://forms.gle/63FyUTMUnLJHX1UZ9', '_blank');
             });
         }
     });
