@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const openGoogleFormHeroBtn = document.getElementById('openGoogleFormHero');
     if (openGoogleFormHeroBtn) {
         openGoogleFormHeroBtn.addEventListener('click', () => {
-            window.open('https://docs.google.com/forms/d/e/1FAIpQLSf5ipXZmeUTUHt-QQRhgRwPnZe-1EOgLeMNb2p2x0m8yVhKUw/viewform?usp=dialog', '_blank');
+            window.open('https://docs.google.com/forms/d/e/1FAIpQLSeZasVw2968xb_U4mPITf0b6_nmMokcYvG--f_OypvByxrBCQ/viewform?usp=dialog', '_blank');
         });
     }
 
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const openGoogleFormContactBtn = document.getElementById('openGoogleFormContact');
     if (openGoogleFormContactBtn) {
         openGoogleFormContactBtn.addEventListener('click', () => {
-            window.open('https://docs.google.com/forms/d/e/1FAIpQLSf5ipXZmeUTUHt-QQRhgRwPnZe-1EOgLeMNb2p2x0m8yVhKUw/viewform?usp=dialog', '_blank');
+            window.open('https://docs.google.com/forms/d/e/1FAIpQLSeZasVw2968xb_U4mPITf0b6_nmMokcYvG--f_OypvByxrBCQ/viewform?usp=dialog', '_blank');
         });
     }
 
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const openGoogleFormSidebarBtn = document.getElementById('openGoogleFormSidebar');
     if (openGoogleFormSidebarBtn) {
         openGoogleFormSidebarBtn.addEventListener('click', () => {
-            window.open('https://docs.google.com/forms/d/e/1FAIpQLSf5ipXZmeUTUHt-QQRhgRwPnZe-1EOgLeMNb2p2x0m8yVhKUw/viewform?usp=dialog', '_blank');
+            window.open('https://docs.google.com/forms/d/e/1FAIpQLSeZasVw2968xb_U4mPITf0b6_nmMokcYvG--f_OypvByxrBCQ/viewform?usp=dialog', '_blank');
         });
     }
 
