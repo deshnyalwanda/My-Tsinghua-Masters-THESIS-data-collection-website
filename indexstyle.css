@@ -1924,167 +1924,184 @@ a:hover {
 @media (max-width: 992px) {
     /* Base font scaling */
     html {
-        font-size: calc(15px * 0.9) !important; /* 12px instead of 15px */
+        font-size: calc(15px * 0.95) !important; /* 12px instead of 15px */
     }
     
     body {
-        font-size: calc(1rem * 0.9) !important; /* 0.9rem instead of ~1rem */
+        font-size: calc(1rem * 0.95) !important; /* 0.9rem instead of ~1rem */
     }
     
     /* Hero section - 0.8x reduction */
     .hero-inner-container h1 {
-        font-size: calc(1.5rem * 0.9) !important; /* ~1.2rem */
+        font-size: calc(1.5rem * 0.95) !important; /* ~1.2rem */
     }
     
     .tagline-study {
-        font-size: calc(1rem * 0.9) !important; /* ~0.8rem */
+        font-size: calc(1rem * 0.95) !important; /* ~0.8rem */
     }
     
     /* Section headers - 0.8x reduction */
     .section-header h2 {
-        font-size: calc(1.5rem * 0.9) !important; /* ~1.2rem */
+        font-size: calc(1.5rem * 0.95) !important; /* ~1.2rem */
     }
     
     .section-subtitle {
-        font-size: calc(1rem * 0.9) !important; /* ~0.8rem */
+        font-size: calc(1rem * 0.95) !important; /* ~0.8rem */
     }
     
     /* Accordion - 0.8x reduction */
     .accordion-header h3 {
-        font-size: calc(1.3rem * 0.9) !important; /* ~1.04rem */
+        font-size: calc(1.3rem * 0.95) !important; /* ~1.04rem */
     }
     
     .accordion-summary {
-        font-size: calc(1rem * 0.9) !important; /* ~0.8rem */
+        font-size: calc(1rem * 0.95) !important; /* ~0.8rem */
     }
     
     .accordion-article h2 {
-        font-size: calc(1.5rem * 0.9) !important; /* ~1.2rem */
+        font-size: calc(1.5rem * 0.95) !important; /* ~1.2rem */
     }
     
     .accordion-article h3 {
-        font-size: calc(1.2rem * 0.9) !important; /* ~0.96rem */
+        font-size: calc(1.2rem * 0.95) !important; /* ~0.96rem */
     }
     
     .accordion-article p {
-        font-size: calc(1rem * 0.9) !important; /* ~0.8rem */
+        font-size: calc(1rem * 0.95) !important; /* ~0.8rem */
     }
     
     .accordion-read-more-btn {
-        font-size: calc(0.95rem * 0.9) !important; /* ~0.76rem */
-        padding: calc(0.75rem * 0.9) calc(1.5rem * 0.9) !important; /* ~0.6rem 1.2rem */
+        font-size: calc(0.95rem * 0.95) !important; /* ~0.76rem */
+        padding: calc(0.75rem * 0.95) calc(1.5rem * 0.95) !important; /* ~0.6rem 1.2rem */
     }
     
     /* Buttons - 0.8x reduction */
     .btn {
-        font-size: calc(0.9rem * 0.9) !important; /* ~0.72rem */
-        padding: calc(0.75rem * 0.9) calc(1.5rem * 0.9) !important; /* ~0.6rem 1.2rem */
+        font-size: calc(0.9rem * 0.95) !important; /* ~0.72rem */
+        padding: calc(0.75rem * 0.95) calc(1.5rem * 0.95) !important; /* ~0.6rem 1.2rem */
     }
     
     /* General text - 0.8x reduction */
     p, .hero-inner-container, .collaboration-logos span {
-        font-size: calc(1rem * 0.9) !important; /* ~0.8rem */
+        font-size: calc(1rem * 0.95) !important; /* ~0.8rem */
         line-height: 1.5 !important;
     }
     
     /* Cards and timeline - 0.8x reduction */
     .driver-card h4 {
-        font-size: calc(1.1rem * 0.9) !important; /* ~0.88rem */
+        font-size: calc(1.1rem * 0.95) !important; /* ~0.88rem */
     }
     
     .driver-card p {
-        font-size: calc(1rem * 0.9) !important; /* ~0.8rem */
+        font-size: calc(1rem * 0.95) !important; /* ~0.8rem */
     }
     
     .timeline-content h4 {
-        font-size: calc(1.1rem * 0.9) !important; /* ~0.88rem */
+        font-size: calc(1.1rem * 0.95) !important; /* ~0.88rem */
     }
     
     .timeline-content p {
-        font-size: calc(1rem * 0.9) !important; /* ~0.8rem */
+        font-size: calc(1rem * 0.95) !important; /* ~0.8rem */
     }
     
     .status-content ul li {
-        font-size: calc(1rem * 0.9) !important; /* ~0.8rem */
+        font-size: calc(1rem * 0.95) !important; /* ~0.8rem */
     }
     
     /* Container padding reduction */
     .hero-inner-container {
-        padding: calc(2rem * 0.9) !important; /* ~1.6rem */
+        padding: calc(2rem * 0.95) !important; /* ~1.6rem */
     }
     
     .container {
-        padding: 0 calc(1.25rem * 0.9) !important; /* ~1rem */
+        padding: 0 calc(1.25rem * 0.95) !important; /* ~1rem */
     }
     
     /* Mobile TOC */
     .mobile-toc-container h2 {
-        font-size: calc(1.1rem * 0.9) !important; /* ~0.88rem */
+        font-size: calc(1.1rem * 0.95) !important; /* ~0.88rem */
     }
     
     .mobile-toc-container ul li a {
-        font-size: calc(0.85em * 0.9) !important; /* ~0.68em */
-        padding: calc(0.4rem * 0.9) calc(0.6rem * 0.9) !important; /* ~0.32rem 0.48rem */
+        font-size: calc(0.85em * 0.95) !important; /* ~0.68em */
+        padding: calc(0.4rem * 0.95) calc(0.6rem * 0.95) !important; /* ~0.32rem 0.48rem */
     }
     
     /* Logo and navigation */
     .logo {
-        font-size: calc(1.2rem * 0.9) !important; /* ~0.96rem */
+        font-size: calc(1.2rem * 0.95) !important; /* ~0.96rem */
     }
     
     .main-nav a {
-        font-size: calc(0.9rem * 0.9) !important; /* ~0.72rem */
+        font-size: calc(0.9rem * 0.95) !important; /* ~0.72rem */
     }
     
     /* Beaming CTA in sidebar */
     .beaming-cta h3 {
-        font-size: calc(0.9em * 0.9) !important; /* ~0.72em */
+        font-size: calc(0.9em * 0.95) !important; /* ~0.72em */
     }
     
     .beaming-cta p {
-        font-size: calc(0.7em * 0.9) !important; /* ~0.56em */
+        font-size: calc(0.7em * 0.95) !important; /* ~0.56em */
     }
     
     .btn-beaming-cta {
-        font-size: calc(0.7em * 0.9) !important; /* ~0.56em */
-        padding: calc(6px * 0.9) calc(12px * 0.9) !important; /* ~4.8px 9.6px */
+        font-size: calc(0.7em * 0.95) !important; /* ~0.56em */
+        padding: calc(6px * 0.95) calc(12px * 0.95) !important; /* ~4.8px 9.6px */
     }
 }
 
 @media (max-width: 480px) {
     /* Further 0.8x reduction for very small screens */
     html {
-        font-size: calc(15px * 0.7) !important; /* 10.5px */
+        font-size: calc(15px * 0.75) !important; /* 10.5px */
     }
     
     .hero-inner-container h1 {
-        font-size: calc(1.5rem * 0.7) !important; /* ~1.05rem */
+        font-size: calc(1.5rem * 0.75) !important; /* ~1.05rem */
     }
     
     .section-header h2 {
-        font-size: calc(1.3rem * 0.9) !important; /* ~1.04rem */
+        font-size: calc(1.3rem * 0.95) !important; /* ~1.04rem */
     }
     
     .accordion-header h3 {
-        font-size: calc(1.1rem * 0.9) !important; /* ~0.88rem */
+        font-size: calc(1.1rem * 0.95) !important; /* ~0.88rem */
     }
     
     .btn {
-        font-size: calc(0.9rem * 0.7) !important; /* ~0.63rem */
-        padding: calc(0.5rem * 0.9) calc(1rem * 0.9) !important; /* ~0.4rem 0.8rem */
+        font-size: calc(0.9rem * 0.75) !important; /* ~0.63rem */
+        padding: calc(0.5rem * 0.95) calc(1rem * 0.95) !important; /* ~0.4rem 0.8rem */
     }
     
     .hero-inner-container {
-        padding: calc(1rem * 0.9) !important; /* ~0.8rem */
+        padding: calc(1rem * 0.95) !important; /* ~0.8rem */
     }
     
     /* Even smaller mobile TOC */
     .mobile-toc-container h2 {
-        font-size: calc(1rem * 0.9) !important; /* ~0.8rem */
+        font-size: calc(1rem * 0.95) !important; /* ~0.8rem */
     }
     
     .mobile-toc-container ul li a {
-        font-size: calc(0.8em * 0.9) !important; /* ~0.64em */
-        padding: calc(0.3rem * 0.9) calc(0.5rem * 0.9) !important; /* ~0.24rem 0.4rem */
+        font-size: calc(0.8em * 0.95) !important; /* ~0.64em */
+        padding: calc(0.3rem * 0.95) calc(0.5rem * 0.95) !important; /* ~0.24rem 0.4rem */
+    }
+}
+/* Update within the @media (max-width: 768px) section */
+@media (max-width: 768px) {
+    /* ... existing rules ... */
+    
+    li {
+        font-size: 0.95em !important;
+    }
+}
+
+/* Update within the @media (max-width: 480px) section */
+@media (max-width: 480px) {
+    /* ... existing rules ... */
+    
+    li {
+        font-size: 0.95em !important;
     }
 }
